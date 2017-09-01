@@ -22,7 +22,7 @@ import ${servicePackageName}.${openServiceName};
  * @ClassName: ${openControllerName}
  * @Description: ${entityName}开放API控制层
  * @author ${authorName}
- * @date 2017年8月23日 上午9:47:25
+ * @date ${currentTime}
  *
  */
 @Controller
