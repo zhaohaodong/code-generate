@@ -17,14 +17,22 @@ import com.yryz.generate.util.SystemConstants;
 public class CodeMain {
 
 	public static void main(String[] args) {
-		System.out.println("......生成代码start......");
+		System.out.println("生成代码start......");
 
 		//获取页面或者配置文件的参数
 		Map<String, Object> templateData = new HashMap<String, Object>();
 		templateData.put("tableName", SystemConstants.tableName);
+		System.out.println("表名=="+SystemConstants.tableName);
+		
 		templateData.put("entityName", SystemConstants.entityName);
+		System.out.println("实体类名称=="+SystemConstants.entityName);
+		
 		templateData.put("packageNamePre", SystemConstants.packageNamePre);
+		System.out.println("包名前缀=="+SystemConstants.packageNamePre);
+		
 		templateData.put("outUrl", SystemConstants.outUrl);
+		System.out.println("生成文件路径为=="+SystemConstants.outUrl);
+		
 
 		templateData.put("databaseName", SystemConstants.databaseName);
 		templateData.put("ipName", SystemConstants.ipName);
@@ -40,7 +48,7 @@ public class CodeMain {
 		} catch (Exception e) {
 		}
 
-		System.out.println("......生成代码end......");
+		System.out.println("生成代码end......");
 	}
 
 }

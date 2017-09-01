@@ -5,9 +5,7 @@ import ${dtoPackageName}.${dtoName};
 
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public interface ${fileName?substring(0,fileName?index_of("."))} {
