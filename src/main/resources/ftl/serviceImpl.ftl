@@ -106,22 +106,22 @@ public class ${serviceImplName} implements ${serviceName} {
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
-	public Integer update(${entityName} ${entityName?uncap_first}) throws ServiceException {
-		if(${entityName?uncap_first}==null || ${entityName?uncap_first}.getId()==null){
-			logger.error("不存在该${entityName}！,id:"+${entityName?uncap_first}.getId());
-			throw ServiceException.paramsError("不存在该${entityName}！",String.valueOf(${entityName?uncap_first}.getId()));
+	public Integer update(${entityName} record) throws ServiceException {
+		if(record==null || record.getId()==null){
+			logger.error("不存在该${entityName}！,id:"+record.getId());
+			throw ServiceException.paramsError("不存在该${entityName}！",String.valueOf(record.getId()));
 		}
 		
 		${entityName} ${entityName?uncap_first}=null;
 		try {
-			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(${entityName?uncap_first}.getId());
+			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(record.getId());
 		} catch (Exception e) {
-			logger.error("查询${entityName}详情失败！,id:"+${entityName?uncap_first}.getId() + e);
-			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(${entityName?uncap_first}.getId()));
+			logger.error("查询${entityName}详情失败！,id:"+record.getId() + e);
+			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(record.getId()));
 		}
 		if(${entityName?uncap_first}==null){
 			logger.error("${entityName}不存在！");
-			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(${entityName?uncap_first}.getId()));
+			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(record.getId()));
 		}
 		
 		
@@ -129,7 +129,7 @@ public class ${serviceImplName} implements ${serviceName} {
 			return ${daoName?uncap_first}.updateByPrimaryKeySelective(${entityName?uncap_first});
 		} catch (Exception e) {
 			logger.error("更新${entityName}详情失败！,${entityName?uncap_first}:" + e);
-			throw ServiceException.busiError("更新${entityName}详情失败！",String.valueOf(${entityName?uncap_first}.getId()));
+			throw ServiceException.busiError("更新${entityName}详情失败！",String.valueOf(record.getId()));
 		}
 	}
 
