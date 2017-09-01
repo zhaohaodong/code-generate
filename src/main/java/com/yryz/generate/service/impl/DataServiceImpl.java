@@ -14,16 +14,16 @@ public class DataServiceImpl implements DataService {
 		// 包名
 		templateData.put("enityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
 				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dto",
+		templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString()  + ".%s.dto",
 				templateData.get("entityName").toString().toLowerCase()));
 		templateData.put("daoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dao",
 				templateData.get("entityName").toString().toLowerCase()));
 		templateData.put("mapperPackageName", templateData.get("packageNamePre").toString() + ".%s.mapper");
-		templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
+		templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
 				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service.impl",
+		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
 				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
+		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
 				templateData.get("entityName").toString().toLowerCase()));
 		
 		// 通用参数

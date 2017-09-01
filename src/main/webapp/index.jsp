@@ -120,7 +120,7 @@
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>表名：</label></td>
 			<td><input type="text" id="tableName" name="tableName"
-				value="qstone_account" size="20">(eg:qstone_account)</td>
+				value="qshop_product" size="20">(eg:qshop_product)</td>
 		</tr>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>实体类名：</label></td>
@@ -130,7 +130,7 @@
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>包名前缀：</label></td>
 			<td><input type="text" id="packageNamePre"
-				name="packageNamePre" value="com.yryz.qstone">(eg:com.yryz.qstone)</td>
+				name="packageNamePre" value="com.yryz.qstone.modules">(eg:com.yryz.qstone.modules)</td>
 		</tr>
 
 		<tr>
@@ -142,7 +142,7 @@
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库名称：</label></td>
 			<td><input type="text" id="databaseName"
-			name="databaseName" value="qstone">(eg:qstone)</td>
+			name="databaseName" value="qshop">(eg:qshop)</td>
 		</tr>
 
 		<tr>
