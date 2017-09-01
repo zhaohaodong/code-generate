@@ -16,7 +16,6 @@ import com.yryz.qstone.core.exception.ServiceException;
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
 import ${daoPackageName}.${daoName};
-import com.yryz.qstone.modules.id.api.IdAPI;
 
 /**
  * 
@@ -32,9 +31,6 @@ public class ${serviceImplName} implements ${serviceName} {
 
 	@Autowired
 	private ${daoName} ${daoName?uncap_first};
-
-	@Autowired
-	IdAPI idAPI;
 
 	@Override
 	public PageEntity<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException {
@@ -83,8 +79,6 @@ public class ${serviceImplName} implements ${serviceName} {
 	@Override
 	public Integer insert(${entityName} record) throws ServiceException {
 		try {
-			Long ${entityName?uncap_first}Code = idAPI.getId("${entityName}");
-			//record.set${entityName}Code(${entityName?uncap_first}Code);
 			return ${daoName?uncap_first}.insert(record);
 		} catch (Exception e) {
 			logger.error("新增${entityName}失败！,${entityName?uncap_first}:" + e);

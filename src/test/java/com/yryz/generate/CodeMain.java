@@ -19,8 +19,7 @@ public class CodeMain {
 	public static void main(String[] args) {
 		System.out.println("......生成代码start......");
 
-
-		// 模板数据参数设值
+		//获取页面或者配置文件的参数
 		Map<String, Object> templateData = new HashMap<String, Object>();
 		templateData.put("tableName", SystemConstants.tableName);
 		templateData.put("entityName", SystemConstants.entityName);
@@ -36,6 +35,7 @@ public class CodeMain {
 		DataService dataService = new DataServiceImpl();
 
 		try {
+			//生成代码文件
 			dataService.generate(templateData);
 		} catch (Exception e) {
 		}

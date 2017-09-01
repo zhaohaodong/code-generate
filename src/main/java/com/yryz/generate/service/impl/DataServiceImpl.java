@@ -11,25 +11,27 @@ import com.yryz.generate.util.freeMaker.FreeMakerUtil;
 public class DataServiceImpl implements DataService {
 
 	public void generate(Map<String, Object> templateData) {
-		// 包名
-		templateData.put("entityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
-				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString()  + ".%s.dto",
-				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("daoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dao",
-				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("mapperPackageName", templateData.get("packageNamePre").toString() + ".%s.mapper");
-		templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
-				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
-				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("openControllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
-				templateData.get("entityName").toString().toLowerCase()));
+		//======================包名配置======================
+		{
+			templateData.put("entityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString()  + ".%s.dto",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("daoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dao",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("mapperPackageName", templateData.get("packageNamePre").toString() + ".%s.mapper");
+			templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("openControllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
+					templateData.get("entityName").toString().toLowerCase()));
+			
+			SimpleDateFormat myFmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			templateData.put("currentTime", myFmt.format(new Date()));
+		}
 		
-		// 通用参数
-		SimpleDateFormat myFmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		templateData.put("currentTime", myFmt.format(new Date()));
-				
+		//======================生成文件配置======================
 		try {
 			// 生成Entity  
 			String entityName=String.format("%s", templateData.get("entityName").toString());
@@ -83,10 +85,8 @@ public class DataServiceImpl implements DataService {
 			this.generateFile("openController.ftl", templateData, templateData.get("openControllerPackageName").toString(),
 					openControllerName + ".java");
 
-			// mapResult.put("code", "200");
 		} catch (Exception e) {
 			e.printStackTrace();
-			// mapResult.put("message", "生成失败！");
 		}
 	}
 
