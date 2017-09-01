@@ -1,6 +1,6 @@
-package ${dtoPackageName!};
+package ${dtoPackageName};
 
-import ${entityPackageName!}.${entityName};
+import ${entityPackageName}.${entityName};
 
 /**
  * @ClassName: ${dtoName}
@@ -9,7 +9,7 @@ import ${entityPackageName!}.${entityName};
  * @date ${currentTime}
  *
  */
-public class ${dtoName} extends ${ entityName } {
+public class ${dtoName} extends ${entityName} {
 	/**
 	 * 开始时间
 	 */

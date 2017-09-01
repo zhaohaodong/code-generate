@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import com.yryz.qstone.core.entity.PageEntity;
 import com.yryz.qstone.core.exception.ServiceException;
-import ${dtoPackageName}.${entityName}Dto;
+import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
 
 /**
@@ -35,10 +35,10 @@ public interface ${serviceName} {
 	/**
 	 * 新增${entityName}
 	 * 
-	 * @param record
+	 * @param ${entityName?uncap_first}
 	 * @return
 	 */
-	Integer insert(${entityName} record) throws ServiceException;
+	Integer insert(${entityName} ${entityName?uncap_first}) throws ServiceException;
 
 	/**
 	 * 查询${entityName}信息
@@ -51,9 +51,9 @@ public interface ${serviceName} {
 	/**
 	 * ${entityName}更新
 	 * 
-	 * @param record
+	 * @param ${entityName?uncap_first}
 	 * @return
 	 */
-	Integer update(${entityName} record) throws ServiceException;
+	Integer update(${entityName} ${entityName?uncap_first}) throws ServiceException;
 
 }
