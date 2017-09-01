@@ -20,11 +20,4 @@ public interface ${openServiceName} {
      */
     void add(${entityName} ${entityName?uncap_first}) throws ServiceException;
     
-    /**
-     * 查询账户详情
-     * @param ${entityName?uncap_first}Code
-     * @return
-     * @throws ServiceException
-     */
-    ${entityName} detail(Long ${entityName?uncap_first}Code) throws ServiceException;
 }

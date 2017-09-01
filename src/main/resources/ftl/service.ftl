@@ -49,13 +49,6 @@ public interface ${serviceName} {
 	${entityName} detail(Long id) throws ServiceException;
 
 	/**
-	 * 根据${entityName}编码查询${entityName}信息
-	 * @param ${entityName?uncap_first}Code
-	 * @return
-	 */
-	${entityName} selectBy${entityName}Code(Long ${entityName?uncap_first}Code);
-	
-	/**
 	 * ${entityName}更新
 	 * 
 	 * @param record

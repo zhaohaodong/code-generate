@@ -20,7 +20,5 @@ public interface ${fileName?substring(0,fileName?index_of("."))} {
 
     ${entityName} selectByPrimaryKey(Long id);
 
-	${entityName} selectBy${entityName}Code(Long ${entityName?uncap_first}Code);
-
     Integer updateByPrimaryKeySelective(${entityName} record);
 }

@@ -54,23 +54,5 @@ public class ${openControllerName} {
 		 return new ResultEntity<String>("success");
 	}
 
-	/**
-	 * 查询${openControllerName}详情
-	 * 
-	 * @param ${entityName?uncap_first}Code
-	 * @param clientCode
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/detail/{${entityName?uncap_first}Code}", method = RequestMethod.GET)
-	public ResultEntity<${entityName}> detail(@PathVariable("${entityName?uncap_first}Code") Long ${entityName?uncap_first}Code,
-			@RequestHeader("clientCode") String clientCode) {
-		if (StringUtils.isBlank(clientCode)) {
-			return new ResultEntity(ExceptionEnum.BusiException.getCode(), "客户端编码无效");
-		}
-		RpcContext.getContext().setAttachment("clientCode", clientCode);
-		${entityName} ${entityName?uncap_first} = ${openServiceName?uncap_first}.detail(${entityName?uncap_first}Code);
-		return new ResultEntity<${entityName}>(${entityName?uncap_first});
-	}
 
 }

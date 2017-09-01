@@ -22,9 +22,6 @@
         select
         <include refid="Base_Column_List"/>
         from ${tableName} where del_flag = 0
-        <if test="${entityName?uncap_first}Code != null and ${entityName?uncap_first}Code != ''">
-        	and ${entityName?uncap_first}_code like concat('%',trim(${r"#{"+entityName?uncap_first+"Code}"}),'%')
-        </if>
         <if test="startDate != null and startDate != '' ">
              <![CDATA[  AND create_date >= ${r"#{startDate}"} ]]>
 		</if>
@@ -39,14 +36,6 @@
         <include refid="Base_Column_List"/>
         from ${tableName}
         where del_flag = 0 and id = ${r"#{id,jdbcType=BIGINT}"}
-    </select>
-    
-    <!-- 查询${entityName}详情(根据${entityName}编码) -->
-    <select id="selectBy${entityName}Code" resultMap="BaseResultMap" parameterType="java.lang.Long">
-        select
-        <include refid="Base_Column_List"/>
-        from ${tableName}
-        where del_flag = 0 and ${entityName?uncap_first}_code = ${r"#{"+entityName?uncap_first+r"Code"+r",jdbcType=BIGINT"+r"}"}
     </select>
     
     <!-- 删除${entityName}-->

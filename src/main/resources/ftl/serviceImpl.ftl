@@ -104,23 +104,6 @@ public class ${serviceImplName} implements ${serviceName} {
 		return ${entityName?uncap_first};
 	}
 	
-	@Override
-	public ${entityName} selectBy${entityName}Code(Long ${entityName?uncap_first}Code) throws ServiceException {
-		if(${entityName?uncap_first}Code==null){
-			logger.error("${entityName}编码不能为空！,${entityName?uncap_first}Code:"+${entityName?uncap_first}Code);
-			throw ServiceException.paramsError("${entityName}编码不能为空！",String.valueOf(${entityName?uncap_first}Code));
-		}
-		
-		${entityName} ${entityName?uncap_first}=null;
-		try {
-			${entityName?uncap_first}=${daoName?uncap_first}.selectBy${entityName}Code(${entityName?uncap_first}Code);
-		} catch (Exception e) {
-			logger.error("查询${entityName}详情失败！,${entityName?uncap_first}Code:"+${entityName?uncap_first}Code + e);
-			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(${entityName?uncap_first}Code));
-		}
-		return ${entityName?uncap_first};
-	}
-
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public Integer update(${entityName} record) throws ServiceException {

@@ -26,11 +26,5 @@ public class ${openServiceImplName} implements ${openServiceName} {
 	public void add(${entityName} account) throws ServiceException {
 		${serviceName?uncap_first}.insert(account);
 	}
-
-	@Override
-	public ${entityName} detail(Long accountCode) throws ServiceException {
-		return ${serviceName?uncap_first}.selectBy${entityName}Code(accountCode);
-	}
-	
 	
 }
