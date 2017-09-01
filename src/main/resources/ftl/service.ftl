@@ -10,7 +10,7 @@ import ${entityPackageName}.${entityName};
 /**
  * 
  * @ClassName: ${serviceName}
- * @Description: ${serviceName}
+ * @Description: ${serviceName}接口
  * @author ${authorName}
  * @date ${currentTime}
  *

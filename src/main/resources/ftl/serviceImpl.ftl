@@ -20,7 +20,7 @@ import ${daoPackageName}.${daoName};
 /**
  * 
  * @ClassName: ${serviceImplName}
- * @Description: ${serviceImplName}
+ * @Description: ${serviceImplName}业务实现类
  * @author ${authorName}
  * @date ${currentTime}
  *
