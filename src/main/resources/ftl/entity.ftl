@@ -2,7 +2,7 @@ package ${ enityPackageName };
 
 import com.yryz.qstone.core.entity.GenericEntity;
 import java.math.BigDecimal;
-
+import java.util.Date;
 /**
  * 
   * @ClassName: ${entityName}

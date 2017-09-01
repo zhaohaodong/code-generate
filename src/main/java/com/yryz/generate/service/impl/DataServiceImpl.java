@@ -23,7 +23,7 @@ public class DataServiceImpl implements DataService {
 				templateData.get("entityName").toString().toLowerCase()));
 		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
 				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
+		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
 				templateData.get("entityName").toString().toLowerCase()));
 		
 		// 通用参数
@@ -64,8 +64,21 @@ public class DataServiceImpl implements DataService {
 			this.generateFile("serviceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
 					serviceImplName + ".java");
 
-			// 生成Controller实现类
-			String controllerImplName = String.format("Open%sApi", templateData.get("entityName").toString());
+			// 生成OpenService  
+			String openServiceName = String.format("Open%sApi", templateData.get("entityName").toString());
+			templateData.put("openServiceName", openServiceName);
+			this.generateFile("openService.ftl", templateData, templateData.get("servicePackageName").toString(),
+					openServiceName + ".java");
+
+			// 生成OpenServiceImpl实现类 
+			String openServiceImplName = String.format("Open%sService", templateData.get("entityName").toString());
+			templateData.put("openServiceImplName", openServiceImplName);
+			this.generateFile("openServiceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
+					openServiceImplName + ".java");
+			
+			
+			// 生成Controller实现类  
+			String controllerImplName = String.format("Open%sController", templateData.get("entityName").toString());
 			templateData.put("controllerImplName", controllerImplName);
 			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
 					controllerImplName + ".java");

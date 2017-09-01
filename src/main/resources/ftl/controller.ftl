@@ -30,7 +30,7 @@ import ${servicePackageName}.${serviceName};
 public class ${fileName?substring(0,fileName?index_of("."))} {
 
 	@Autowired
-	private ${entityName}Service ${entityName?uncap_first}Service;
+	private ${serviceName} ${serviceName?uncap_first};
 
 	/**
 	 * 创建${entityName}
@@ -42,13 +42,13 @@ public class ${fileName?substring(0,fileName?index_of("."))} {
 	@ResponseBody
 	@RequestMapping(value = "add")
 	public ResultEntity<String> add(@RequestBody ${entityName} ${entityName?uncap_first}, @RequestHeader("clientCode") String clientCode) {
-		if (${entityName?uncap_first}.getOwnerCode() == null) {
-			 return new ResultEntity<String>(ExceptionEnum.BusiException.getCode(), "资金主体编码不能为空！");
-		}
+		//if (${entityName?uncap_first}.getOwnerCode() == null) {
+		//	 return new ResultEntity<String>(ExceptionEnum.BusiException.getCode(), "资金主体编码不能为空！");
+		//}
 		
 		try {
 			RpcContext.getContext().setAttachment("clientCode", clientCode);
-			${entityName?uncap_first}Service.add(${entityName?uncap_first});
+			${serviceName?uncap_first}.insert(${entityName?uncap_first});
 		} catch (Exception e) {
       	  if (e instanceof ServiceException)
                 return new ResultEntity<String>(ExceptionEnum.BusiException.getCode(), ((ServiceException) e).getMsg());
@@ -73,7 +73,7 @@ public class ${fileName?substring(0,fileName?index_of("."))} {
 			return new ResultEntity(ExceptionEnum.BusiException.getCode(), "客户端编码无效");
 		}
 		RpcContext.getContext().setAttachment("clientCode", clientCode);
-		${entityName} ${entityName?uncap_first} = ${entityName?uncap_first}Service.detail(${entityName?uncap_first}Code);
+		${entityName} ${entityName?uncap_first} = ${serviceName?uncap_first}.detail(${entityName?uncap_first}Code);
 		return new ResultEntity<${entityName}>(${entityName?uncap_first});
 	}
 
