@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 
   * @ClassName: ${entityName}
-  * @Description: ${ tableDes }
+  * @Description: ${tableDes}
   * @author ${authorName}
   * @date ${currentTime}
   *

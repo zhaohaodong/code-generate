@@ -7,6 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * 
+  * @ClassName: ${daoName}
+  * @Description: ${entityName}数据访问接口
+  * @author ${authorName}
+  * @date ${currentTime}
+  *
+ */
 @Repository
 public interface ${daoName} {
 
