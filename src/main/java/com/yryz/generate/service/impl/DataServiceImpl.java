@@ -53,19 +53,19 @@ public class DataServiceImpl implements DataService {
 					mapperName+".xml");
 
 			// 生成Service
-			String serviceName = String.format("%sService", templateData.get("entityName").toString());
+			String serviceName = String.format("%sApi", templateData.get("entityName").toString());
 			templateData.put("serviceName", serviceName);
 			this.generateFile("service.ftl", templateData, templateData.get("servicePackageName").toString(),
 					serviceName + ".java");
 
 			// 生成Service实现类
-			String serviceImplName = String.format("%sServiceImpl", templateData.get("entityName").toString());
+			String serviceImplName = String.format("%sProvider", templateData.get("entityName").toString());
 			templateData.put("serviceImplName", serviceImplName);
 			this.generateFile("serviceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
 					serviceImplName + ".java");
 
 			// 生成Controller实现类
-			String controllerImplName = String.format("%sController", templateData.get("entityName").toString());
+			String controllerImplName = String.format("Open%sApi", templateData.get("entityName").toString());
 			templateData.put("controllerImplName", controllerImplName);
 			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
 					controllerImplName + ".java");
