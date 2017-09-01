@@ -55,6 +55,7 @@ public class GeneratesServlet extends HttpServlet {
 		templateData.put("entityName", request.getParameter("entityName"));
 		templateData.put("packageNamePre", request.getParameter("packageNamePre"));
 		templateData.put("outUrl", request.getParameter("outUrl"));
+		templateData.put("authorName", request.getParameter("authorName"));
 		
 		//数据库参数设值
 		templateData.put("databaseName", request.getParameter("databaseName"));

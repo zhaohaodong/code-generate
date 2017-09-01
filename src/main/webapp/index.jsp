@@ -69,7 +69,13 @@
 			alert("输出路径不能为空！");
 			return false;
 		}
-
+		
+		var authorName = $.trim($("#authorName").val());
+		if (authorName == "") {
+			alert("注释签名不能为空！");
+			return false;
+		}
+		
 		$.ajax({
 			type : "POST",
 			url : "${pageContext.request.contextPath}/GeneratesServlet",
@@ -83,6 +89,7 @@
 				portName : portName,
 				userName : userName,
 				outUrl : outUrl,
+				authorName : authorName,
 				passWord : passWord
 			},
 			success : function(data) {
@@ -139,6 +146,12 @@
 				name="outUrl" value="D:/generate">(eg:D:/generate)</td>
 		</tr>
 
+		<tr>
+			<td><label for="txtname"><font color="red">*</font>注释签名：</label></td>
+			<td><input type="text" id="authorName"
+				name="authorName" value="wangsenyong">(eg:wangsenyong)</td>
+		</tr>
+		
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库名称：</label></td>
 			<td><input type="text" id="databaseName"
