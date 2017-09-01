@@ -8,6 +8,6 @@ public interface DbService {
 	 * @param tableName
 	 * @return
 	 */
-	public void getAllColums(Map<String,Object> dbData,Map<String, Object> templateData);
+	public void getAllColums(Map<String, Object> templateData);
 	
 }

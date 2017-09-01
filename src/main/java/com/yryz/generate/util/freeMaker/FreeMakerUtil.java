@@ -58,7 +58,7 @@ public class FreeMakerUtil {
 	}
 
 	/**
-	 * 生成文件
+	 * 根据Freemark模板，生成文件
 	 * 
 	 * @param templateName:模板名
 	 * @param root：数据原型

@@ -4,16 +4,21 @@ import java.util.Map;
 
 public interface DataService {
 
-	
 	/**
-	 * 根据表名获取Vo模板要用的Map型数据
-	 * 
-	 * @param tableName
-	 * @return
+	 * 代码生成
+	 * @param params
 	 */
-	public Map<String, Object> getDbTemplateData(String templateName, Map<String, Object> dbData, Map<String, Object> paramMap,
-			String fileName);
+	public void generate(Map<String, Object> params);
+	
 
-	public void generateFile(String templateName, Map<String, Object> dbData, Map<String, Object> templateData,
+	/**
+	 * 根据模板生成具体某个文件
+	 * @param templateName
+	 * @param templateData
+	 * @param packageName
+	 * @param fileName
+	 */
+	public void generateFile(String templateName, Map<String, Object> templateData,
 			String packageName, String fileName);
+	
 }

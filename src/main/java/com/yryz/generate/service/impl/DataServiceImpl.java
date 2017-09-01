@@ -10,6 +10,73 @@ import com.yryz.generate.util.freeMaker.FreeMakerUtil;
 
 public class DataServiceImpl implements DataService {
 
+	public void generate(Map<String, Object> templateData) {
+		// 包名
+		templateData.put("enityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
+				templateData.get("entityName").toString().toLowerCase()));
+		templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dto",
+				templateData.get("entityName").toString().toLowerCase()));
+		templateData.put("daoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dao",
+				templateData.get("entityName").toString().toLowerCase()));
+		templateData.put("mapperPackageName", templateData.get("packageNamePre").toString() + ".%s.mapper");
+		templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
+				templateData.get("entityName").toString().toLowerCase()));
+		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service.impl",
+				templateData.get("entityName").toString().toLowerCase()));
+		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
+				templateData.get("entityName").toString().toLowerCase()));
+		
+		// 通用参数
+		SimpleDateFormat myFmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		templateData.put("currentTime", myFmt.format(new Date()));
+				
+		try {
+			// 生成Entity  
+			String entityName=String.format("%s", templateData.get("entityName").toString());
+			this.generateFile("entity.ftl", templateData, templateData.get("enityPackageName").toString(), entityName+".java");
+
+			// 生成DTO
+			String dtoName = String.format("%sDto", templateData.get("entityName").toString());
+			templateData.put("dtoName", dtoName);
+			this.generateFile("dto.ftl", templateData, templateData.get("dtoPackageName").toString(),
+					dtoName + ".java");
+
+			// 生成DAO
+			String daoName = String.format("%sDao", templateData.get("entityName").toString());
+			templateData.put("daoName", daoName);
+			this.generateFile("dao.ftl", templateData, templateData.get("daoPackageName").toString(),
+					daoName + ".java");
+
+			// 生成Mapper
+			String mapperName = String.format("%sMapper", templateData.get("entityName").toString());
+			this.generateFile("mapper.ftl", templateData, templateData.get("mapperPackageName").toString(),
+					mapperName+".xml");
+
+			// 生成Service
+			String serviceName = String.format("%sService", templateData.get("entityName").toString());
+			templateData.put("serviceName", serviceName);
+			this.generateFile("service.ftl", templateData, templateData.get("servicePackageName").toString(),
+					serviceName + ".java");
+
+			// 生成Service实现类
+			String serviceImplName = String.format("%sServiceImpl", templateData.get("entityName").toString());
+			templateData.put("serviceImplName", serviceImplName);
+			this.generateFile("serviceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
+					serviceImplName + ".java");
+
+			// 生成Controller实现类
+			String controllerImplName = String.format("%sController", templateData.get("entityName").toString());
+			templateData.put("controllerImplName", controllerImplName);
+			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
+					controllerImplName + ".java");
+
+			// mapResult.put("code", "200");
+		} catch (Exception e) {
+			e.printStackTrace();
+			// mapResult.put("message", "生成失败！");
+		}
+	}
+
 	/**
 	 * 生成文件
 	 * 
@@ -18,54 +85,34 @@ public class DataServiceImpl implements DataService {
 	 * @param packageName
 	 *            包名
 	 * @param templateData
-	 *            参数名           
+	 *            参数名
 	 * @param fileName
 	 *            文件名
 	 */
-	public void generateFile(String templateName,Map<String,Object> dbData,Map<String,Object> templateData,String packageName,
-			String fileName) { 
+	public void generateFile(String templateName, Map<String, Object> templateData, String packageName,
+			String fileName) {
+		templateData.put("fileName", fileName);
 		
-		// 默认生成文件的路径
-		FreeMakerUtil freeMakerUtil = new FreeMakerUtil();
-		fileName=String.format(fileName, templateData.get("entityName").toString());
-		templateData.put("fileName",fileName);
-		
-		Map<String, Object> map = getDbTemplateData(templateName,dbData,templateData, fileName);
-		
-		try {
-			freeMakerUtil.generateFile(templateName, map ,packageName, fileName);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	
-	/**
-	 * 根据表名获取模板要用的Map型数据 (带有列信息)
-	 * 
-	 * @param tableName
-	 * @return
-	 */
-	public Map<String, Object> getDbTemplateData(String templateName,Map<String,Object> dbData, Map<String, Object> templateData, String fileName) {
 		DbService dbService = new DbServiceImpl();
-		
-		// 通用参数
-		SimpleDateFormat myFmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		templateData.put("currentTime", myFmt.format(new Date()));
-
 		switch (templateName) {
 		case "entity.ftl":
 			// 数据库参数
-			dbService.getAllColums(dbData,templateData);
+			dbService.getAllColums(templateData);
 			break;
 		case "mapper.ftl":
-			dbService.getAllColums(dbData,templateData);
+			dbService.getAllColums(templateData);
 			break;
 		default:
 			break;
 		}
-
-		return templateData;
+		
+		try {
+			// 默认生成文件的路径
+			FreeMakerUtil freeMakerUtil = new FreeMakerUtil();
+			freeMakerUtil.generateFile(templateName, templateData, packageName, fileName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

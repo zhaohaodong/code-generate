@@ -23,11 +23,11 @@ public class DbServiceImpl implements DbService {
 	 * @param tableName
 	 * @return
 	 */
-	public void getAllColums(Map<String,Object> dbData,Map<String, Object> templateData) {
-		String databaseName = dbData.get("databaseName").toString();
-		String tableName = dbData.get("tableName").toString();
+	public void getAllColums(Map<String, Object> templateData) {
+		String databaseName = templateData.get("databaseName").toString();
+		String tableName = templateData.get("tableName").toString();
 		
-		DbConn dbConn = new DbConn(dbData);
+		DbConn dbConn = new DbConn(templateData);
 		this.conn = dbConn.getConnection();
 		
 		ArrayList<FieldBean> returnList = new ArrayList<FieldBean>();
