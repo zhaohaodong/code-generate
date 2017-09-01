@@ -7,7 +7,7 @@ import ${entityPackageName}.${entityName};
  * 
   * @ClassName: ${openServiceName}
   * @Description: 账户开放API接口
-  * @author zhongying
+  * @author ${authorName}
   * @date 2017年8月23日 上午9:42:54
   *
  */

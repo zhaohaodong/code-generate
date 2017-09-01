@@ -12,7 +12,7 @@ import ${servicePackageName}.${openServiceName};
  * 
   * @ClassName: ${openServiceImplName}
   * @Description: ${entityName}开放API业务实现类
-  * @author zhongying
+  * @author ${authorName}
   * @date 2017年8月23日 上午9:46:38
   *
  */

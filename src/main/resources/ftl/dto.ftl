@@ -5,7 +5,7 @@ import ${entityPackageName!}.${entityName};
 /**
  * @ClassName: ${fileName?substring(0,fileName?index_of("."))}
  * @Description: ${fileName?substring(0,fileName?index_of("."))}
- * @author zhongying
+ * @author ${authorName}
  * @date ${currentTime}
  *
  */

@@ -21,7 +21,7 @@ import ${daoPackageName}.${daoName};
  * 
  * @ClassName: ${serviceImplName}
  * @Description: ${serviceImplName}
- * @author zhongying
+ * @author ${authorName}
  * @date ${currentTime}
  *
  */

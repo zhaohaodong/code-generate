@@ -33,7 +33,10 @@ public class CodeMain {
 		templateData.put("outUrl", SystemConstants.outUrl);
 		System.out.println("生成文件路径为=="+SystemConstants.outUrl);
 		
-
+		templateData.put("authorName", SystemConstants.authorName);
+		System.out.println("以后代码出问题找=="+SystemConstants.authorName);
+		
+				
 		templateData.put("databaseName", SystemConstants.databaseName);
 		templateData.put("ipName", SystemConstants.ipName);
 		templateData.put("portName", SystemConstants.portName);

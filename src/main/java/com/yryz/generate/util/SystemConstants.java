@@ -34,7 +34,7 @@ public class SystemConstants {
 	public static final String portName = properties.getProperty("portName");
 	public static final String userName = properties.getProperty("userName");
 	public static final String passWord = properties.getProperty("passWord");
-	
+	public static final String authorName = properties.getProperty("authorName");
 	
 	
 }

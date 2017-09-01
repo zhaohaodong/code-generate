@@ -7,7 +7,7 @@ import java.util.Date;
  * 
   * @ClassName: ${entityName}
   * @Description: ${ tableDes }
-  * @author zhongying
+  * @author ${authorName}
   * @date ${currentTime}
   *
  */

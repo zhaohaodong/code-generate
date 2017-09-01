@@ -11,7 +11,7 @@ import ${entityPackageName}.${entityName};
  * 
  * @ClassName: ${serviceName}
  * @Description: ${serviceName}
- * @author zhongying
+ * @author ${authorName}
  * @date ${currentTime}
  *
  */
