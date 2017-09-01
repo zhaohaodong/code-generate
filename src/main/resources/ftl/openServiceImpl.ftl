@@ -23,8 +23,8 @@ public class ${openServiceImplName} implements ${openServiceName} {
     private ${serviceName} ${serviceName?uncap_first};
 
 	@Override
-	public void add(${entityName} account) throws ServiceException {
-		${serviceName?uncap_first}.insert(account);
+	public void add(${entityName} ${entityName?uncap_first}) throws ServiceException {
+		${serviceName?uncap_first}.insert(${entityName?uncap_first});
 	}
 	
 }

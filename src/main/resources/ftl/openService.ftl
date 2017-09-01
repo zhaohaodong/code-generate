@@ -6,7 +6,7 @@ import ${entityPackageName}.${entityName};
 /**
  * 
   * @ClassName: ${openServiceName}
-  * @Description: 账户开放API接口
+  * @Description: ${entityName}开放API接口
   * @author ${authorName}
   * @date ${currentTime}
   *
@@ -14,7 +14,7 @@ import ${entityPackageName}.${entityName};
 public interface ${openServiceName} {
 
     /**
-     * 创建账户
+     * 创建${entityName}
      *
      * @param ${entityName?uncap_first}
      */

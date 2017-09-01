@@ -3,13 +3,13 @@ package ${dtoPackageName!};
 import ${entityPackageName!}.${entityName};
 
 /**
- * @ClassName: ${fileName?substring(0,fileName?index_of("."))}
- * @Description: ${fileName?substring(0,fileName?index_of("."))}
+ * @ClassName: ${dtoName}
+ * @Description: ${dtoName}
  * @author ${authorName}
  * @date ${currentTime}
  *
  */
-public class ${fileName?substring(0,fileName?index_of("."))} extends ${ entityName } {
+public class ${dtoName} extends ${ entityName } {
 	/**
 	 * 开始时间
 	 */
