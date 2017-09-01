@@ -43,22 +43,32 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<!-- JSON setting -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.12</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>sgt-generate</finalName>
+		<plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+				<encoding>utf8</encoding>
+			</configuration>
+		</plugin>
+		</plugins>
 	</build>
 </project>
