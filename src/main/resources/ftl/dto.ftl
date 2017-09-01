@@ -1,6 +1,6 @@
 package ${dtoPackageName!};
 
-import ${enityPackageName!}.${entityName};
+import ${entityPackageName!}.${entityName};
 
 /**
  * @ClassName: ${fileName?substring(0,fileName?index_of("."))}

@@ -1,6 +1,6 @@
 package ${daoPackageName};
 
-import ${enityPackageName}.${entityName};
+import ${entityPackageName}.${entityName};
 import ${dtoPackageName}.${dtoName};
 
 import org.springframework.stereotype.Repository;

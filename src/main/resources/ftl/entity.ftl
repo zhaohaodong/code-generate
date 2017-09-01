@@ -1,4 +1,4 @@
-package ${ enityPackageName };
+package ${ entityPackageName };
 
 import com.yryz.qstone.core.entity.GenericEntity;
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package ${servicePackageName};
+package ${openControllerPackageName};
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,26 +14,26 @@ import com.alibaba.dubbo.rpc.RpcContext;
 import com.yryz.qstone.core.constant.ExceptionEnum;
 import com.yryz.qstone.core.entity.ResultEntity;
 import com.yryz.qstone.core.exception.ServiceException;
-import ${enityPackageName}.${entityName};
-import ${servicePackageName}.${serviceName};
+import ${entityPackageName}.${entityName};
+import ${servicePackageName}.${openServiceName};
 
 /**
  * 
- * @ClassName: ${entityName}Controller
+ * @ClassName: ${openControllerName}
  * @Description: ${entityName}开放API控制层
  * @author zhongying
  * @date 2017年8月23日 上午9:47:25
  *
  */
 @Controller
-@RequestMapping("${entityName?uncap_first}")
-public class ${fileName?substring(0,fileName?index_of("."))} {
+@RequestMapping("open${entityName}")
+public class ${openControllerName} {
 
 	@Autowired
-	private ${serviceName} ${serviceName?uncap_first};
+	private ${openServiceName} ${openServiceName?uncap_first};
 
 	/**
-	 * 创建${entityName}
+	 * 创建${openControllerName}
 	 * 
 	 * @param owner
 	 * @param clientCode
@@ -42,13 +42,9 @@ public class ${fileName?substring(0,fileName?index_of("."))} {
 	@ResponseBody
 	@RequestMapping(value = "add")
 	public ResultEntity<String> add(@RequestBody ${entityName} ${entityName?uncap_first}, @RequestHeader("clientCode") String clientCode) {
-		//if (${entityName?uncap_first}.getOwnerCode() == null) {
-		//	 return new ResultEntity<String>(ExceptionEnum.BusiException.getCode(), "资金主体编码不能为空！");
-		//}
-		
 		try {
 			RpcContext.getContext().setAttachment("clientCode", clientCode);
-			${serviceName?uncap_first}.insert(${entityName?uncap_first});
+			${openServiceName?uncap_first}.add(${entityName?uncap_first});
 		} catch (Exception e) {
       	  if (e instanceof ServiceException)
                 return new ResultEntity<String>(ExceptionEnum.BusiException.getCode(), ((ServiceException) e).getMsg());
@@ -59,7 +55,7 @@ public class ${fileName?substring(0,fileName?index_of("."))} {
 	}
 
 	/**
-	 * 查询${entityName}详情
+	 * 查询${openControllerName}详情
 	 * 
 	 * @param ${entityName?uncap_first}Code
 	 * @param clientCode
@@ -73,7 +69,7 @@ public class ${fileName?substring(0,fileName?index_of("."))} {
 			return new ResultEntity(ExceptionEnum.BusiException.getCode(), "客户端编码无效");
 		}
 		RpcContext.getContext().setAttachment("clientCode", clientCode);
-		${entityName} ${entityName?uncap_first} = ${serviceName?uncap_first}.detail(${entityName?uncap_first}Code);
+		${entityName} ${entityName?uncap_first} = ${openServiceName?uncap_first}.detail(${entityName?uncap_first}Code);
 		return new ResultEntity<${entityName}>(${entityName?uncap_first});
 	}
 

@@ -3,7 +3,7 @@
 <mapper namespace="${daoPackageName}">
 
 	<!--BaseResultMap-->
-    <resultMap id="BaseResultMap" type="${enityPackageName}">
+    <resultMap id="BaseResultMap" type="${entityPackageName}">
     <#list columns as pro>
 	<#if pro.proName == 'id'>  
 		<id column="id" property="id" jdbcType="BIGINT"/>
@@ -57,7 +57,7 @@
   
   
   	<!-- 新增${entityName}-->
-    <insert id="insert" parameterType="${enityPackageName}">
+    <insert id="insert" parameterType="${entityPackageName}">
 	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
 	    values (${r"#{id,jdbcType=BIGINT}"}
 	    <#list columns as pro>
@@ -72,7 +72,7 @@
 	
 	
 	<!-- 按需修改${entityName}-->   
-    <update id="updateByPrimaryKeySelective" parameterType="${enityPackageName}">
+    <update id="updateByPrimaryKeySelective" parameterType="${entityPackageName}">
         update ${tableName}
         <set>
            <#list columns as pro>

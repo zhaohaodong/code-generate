@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import com.yryz.qstone.core.entity.PageEntity;
 import com.yryz.qstone.core.exception.ServiceException;
 import ${dtoPackageName}.${entityName}Dto;
-import ${enityPackageName}.${entityName};
+import ${entityPackageName}.${entityName};
 
 /**
  * 

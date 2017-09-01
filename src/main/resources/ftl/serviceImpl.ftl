@@ -14,7 +14,7 @@ import com.yryz.qstone.core.constant.CommonConstant;
 import com.yryz.qstone.core.entity.PageEntity;
 import com.yryz.qstone.core.exception.ServiceException;
 import ${dtoPackageName}.${dtoName};
-import ${enityPackageName}.${entityName};
+import ${entityPackageName}.${entityName};
 import ${daoPackageName}.${daoName};
 import com.yryz.qstone.modules.id.api.IdAPI;
 
@@ -27,7 +27,7 @@ import com.yryz.qstone.modules.id.api.IdAPI;
  *
  */
 @Service
-public class ${serviceImplName} implements ${entityName}Api {
+public class ${serviceImplName} implements ${serviceName} {
 	private static final Logger logger = LoggerFactory.getLogger(${entityName}Provider.class);
 
 	@Autowired

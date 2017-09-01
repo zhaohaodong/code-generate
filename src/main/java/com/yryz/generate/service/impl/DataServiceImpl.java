@@ -12,7 +12,7 @@ public class DataServiceImpl implements DataService {
 
 	public void generate(Map<String, Object> templateData) {
 		// 包名
-		templateData.put("enityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
+		templateData.put("entityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
 				templateData.get("entityName").toString().toLowerCase()));
 		templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString()  + ".%s.dto",
 				templateData.get("entityName").toString().toLowerCase()));
@@ -23,7 +23,7 @@ public class DataServiceImpl implements DataService {
 				templateData.get("entityName").toString().toLowerCase()));
 		templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
 				templateData.get("entityName").toString().toLowerCase()));
-		templateData.put("controllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
+		templateData.put("openControllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
 				templateData.get("entityName").toString().toLowerCase()));
 		
 		// 通用参数
@@ -33,7 +33,7 @@ public class DataServiceImpl implements DataService {
 		try {
 			// 生成Entity  
 			String entityName=String.format("%s", templateData.get("entityName").toString());
-			this.generateFile("entity.ftl", templateData, templateData.get("enityPackageName").toString(), entityName+".java");
+			this.generateFile("entity.ftl", templateData, templateData.get("entityPackageName").toString(), entityName+".java");
 
 			// 生成DTO
 			String dtoName = String.format("%sDto", templateData.get("entityName").toString());
@@ -78,10 +78,10 @@ public class DataServiceImpl implements DataService {
 			
 			
 			// 生成Controller实现类  
-			String controllerImplName = String.format("Open%sController", templateData.get("entityName").toString());
-			templateData.put("controllerImplName", controllerImplName);
-			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
-					controllerImplName + ".java");
+			String openControllerName = String.format("Open%sController", templateData.get("entityName").toString());
+			templateData.put("openControllerName", openControllerName);
+			this.generateFile("openController.ftl", templateData, templateData.get("openControllerPackageName").toString(),
+					openControllerName + ".java");
 
 			// mapResult.put("code", "200");
 		} catch (Exception e) {
