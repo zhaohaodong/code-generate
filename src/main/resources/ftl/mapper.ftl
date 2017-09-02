@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="${daoPackageName}">
+<mapper namespace="${daoPackageName}.${daoName}">
 
 	<!--BaseResultMap-->
-    <resultMap id="BaseResultMap" type="${entityPackageName}">
+    <resultMap id="BaseResultMap" type="${entityPackageName}.${entityName}">
     <#list columns as pro>
 	<#if pro.proName == 'id'>  
 		<id column="id" property="id" jdbcType="BIGINT"/>
