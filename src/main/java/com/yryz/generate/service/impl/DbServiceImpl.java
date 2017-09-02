@@ -56,6 +56,11 @@ public class DbServiceImpl implements DbService {
 					if(fieldType.contains("DATETIME")){
 						fieldType="TIMESTAMP";
 					}
+					
+					if(fieldType.equals("INT")){
+						fieldType="INTEGER";
+					}
+					
 					fieldBean.setFieldType(fieldType);
 					
 					fieldBean.setProName(proName);
