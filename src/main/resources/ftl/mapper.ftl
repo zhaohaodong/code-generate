@@ -18,7 +18,7 @@
     </sql>
 
    	<!-- 查询${entityName}列表 -->
-    <select id="selectList" parameterType="${dtoPackageName}" resultMap="BaseResultMap">
+    <select id="selectList" parameterType="${dtoPackageName}.${dtoName}" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from ${tableName} where del_flag = 0
@@ -46,7 +46,7 @@
   
   
   	<!-- 新增${entityName}-->
-    <insert id="insert" parameterType="${entityPackageName}">
+    <insert id="insert" parameterType="${entityPackageName}.${entityName}">
 	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
 	    values (${r"#{id,jdbcType=BIGINT}"}
 	    <#list columns as pro>
@@ -61,7 +61,7 @@
 	
 	
 	<!-- 按需修改${entityName}-->   
-    <update id="updateByPrimaryKeySelective" parameterType="${entityPackageName}">
+    <update id="updateByPrimaryKeySelective" parameterType="${entityPackageName}.${entityName}">
         update ${tableName}
         <set>
            <#list columns as pro>

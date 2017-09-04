@@ -13,20 +13,23 @@ public class DataServiceImpl implements DataService {
 	public void generate(Map<String, Object> templateData) {
 		//======================包名配置======================
 		{
-			templateData.put("entityPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.entity",
-					templateData.get("entityName").toString().toLowerCase()));
-			templateData.put("dtoPackageName", String.format(templateData.get("packageNamePre").toString()  + ".%s.dto",
-					templateData.get("entityName").toString().toLowerCase()));
-			templateData.put("daoPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.dao",
-					templateData.get("entityName").toString().toLowerCase()));
-			templateData.put("mapperPackageName", templateData.get("packageNamePre").toString() + ".%s.mapper");
-			templateData.put("servicePackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.api",
-					templateData.get("entityName").toString().toLowerCase()));
-			templateData.put("serviceImplPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.service",
-					templateData.get("entityName").toString().toLowerCase()));
-			templateData.put("openControllerPackageName", String.format(templateData.get("packageNamePre").toString() + ".%s.controller",
-					templateData.get("entityName").toString().toLowerCase()));
+			String packageNamePre=templateData.get("packageNamePre").toString();
 			
+			templateData.put("entityPackageName", String.format(packageNamePre + ".entity",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("dtoPackageName", String.format(packageNamePre + ".dto",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("daoPackageName", String.format(packageNamePre + ".dao",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("mapperPackageName", packageNamePre + ".mapper");
+			templateData.put("servicePackageName", String.format(packageNamePre + ".api",
+					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("serviceImplPackageName", String.format(packageNamePre  + ".service",
+					templateData.get("entityName").toString().toLowerCase()));
+//			templateData.put("openControllerPackageName", String.format(packageNamePre  + ".controller",
+//					templateData.get("entityName").toString().toLowerCase()));
+			templateData.put("controllerPackageName", String.format(packageNamePre  + ".controller",
+			templateData.get("entityName").toString().toLowerCase()));
 			SimpleDateFormat myFmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			templateData.put("currentTime", myFmt.format(new Date()));
 		}
@@ -67,24 +70,30 @@ public class DataServiceImpl implements DataService {
 					serviceImplName + ".java");
 
 			// 生成OpenService  
-			String openServiceName = String.format("Open%sApi", templateData.get("entityName").toString());
-			templateData.put("openServiceName", openServiceName);
-			this.generateFile("openService.ftl", templateData, templateData.get("servicePackageName").toString(),
-					openServiceName + ".java");
+//			String openServiceName = String.format("Open%sApi", templateData.get("entityName").toString());
+//			templateData.put("openServiceName", openServiceName);
+//			this.generateFile("openService.ftl", templateData, templateData.get("servicePackageName").toString(),
+//					openServiceName + ".java");
 
 			// 生成OpenServiceImpl实现类 
-			String openServiceImplName = String.format("Open%sService", templateData.get("entityName").toString());
-			templateData.put("openServiceImplName", openServiceImplName);
-			this.generateFile("openServiceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
-					openServiceImplName + ".java");
-			
+//			String openServiceImplName = String.format("Open%sService", templateData.get("entityName").toString());
+//			templateData.put("openServiceImplName", openServiceImplName);
+//			this.generateFile("openServiceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
+//					openServiceImplName + ".java");
+//			
 			
 			// 生成Controller实现类  
-			String openControllerName = String.format("Open%sController", templateData.get("entityName").toString());
-			templateData.put("openControllerName", openControllerName);
-			this.generateFile("openController.ftl", templateData, templateData.get("openControllerPackageName").toString(),
-					openControllerName + ".java");
+//			String openControllerName = String.format("Open%sController", templateData.get("entityName").toString());
+//			templateData.put("openControllerName", openControllerName);
+//			this.generateFile("openController.ftl", templateData, templateData.get("openControllerPackageName").toString(),
+//					openControllerName + ".java");
 
+			// 生成Controller实现类  
+			String controllerName = String.format("%sController", templateData.get("entityName").toString());
+			templateData.put("controllerName", controllerName);
+			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
+					controllerName + ".java");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

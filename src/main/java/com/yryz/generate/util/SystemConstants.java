@@ -28,6 +28,7 @@ public class SystemConstants {
 	public static final String tableName = properties.getProperty("tableName");
 	public static final String entityName = properties.getProperty("entityName");
 	public static final String packageNamePre = properties.getProperty("packageNamePre");
+	public static final String packageNamePre2 = properties.getProperty("packageNamePre2");
 	public static final String outUrl = properties.getProperty("outUrl");
 	public static final String databaseName = properties.getProperty("databaseName");
 	public static final String ipName = properties.getProperty("ipName");
