@@ -1,6 +1,6 @@
 package ${ entityPackageName };
 
-import com.yryz.qstone.core.entity.GenericEntity;
+import com.yryz.qshop.common.entity.GenericEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 /**
