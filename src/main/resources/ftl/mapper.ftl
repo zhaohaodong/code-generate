@@ -47,16 +47,19 @@
   
   	<!-- 新增${entityName}-->
     <insert id="insert" parameterType="${entityPackageName}.${entityName}">
-	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
+	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0><#elseif pro_index == 1>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
 	    values (
 	    <#list columns as pro>
-	    <#if pro.fieldName == "create_date" || pro.fieldName == "last_update_date">
+	    <#if pro_index == 0>
+	    <#elseif pro_index == 1>
+	    	${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
+	    <#else>
+	    	<#if pro.fieldName == "create_date" || pro.fieldName == "last_update_date">
 			,NOW()
-		<#elseif pro.fieldName == "id">
-			${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
-		<#else>
-			,${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
-		</#if>
+			<#else>
+				,${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
+			</#if>
+	    </#if>
     	</#list>	
 	    )
 	</insert>

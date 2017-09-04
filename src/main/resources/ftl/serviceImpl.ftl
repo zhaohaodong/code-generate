@@ -79,6 +79,7 @@ public class ${serviceImplName} implements ${serviceName} {
 	@Override
 	public Integer insert(${entityName} ${entityName?uncap_first}) throws ServiceException {
 		try {
+			${entityName?uncap_first}.setDelFlag(CommonConstant.del.normal.intValue());
 			return ${daoName?uncap_first}.insert(${entityName?uncap_first});
 		} catch (Exception e) {
 			logger.error("新增${entityName}失败！,${entityName?uncap_first}:" + e);
@@ -126,7 +127,7 @@ public class ${serviceImplName} implements ${serviceName} {
 		
 		
 		try {
-			return ${daoName?uncap_first}.updateByPrimaryKeySelective(${entityName?uncap_first});
+			return ${daoName?uncap_first}.updateByPrimaryKeySelective(record);
 		} catch (Exception e) {
 			logger.error("更新${entityName}详情失败！,${entityName?uncap_first}:" + e);
 			throw ServiceException.busiError("更新${entityName}详情失败！",String.valueOf(record.getId()));
