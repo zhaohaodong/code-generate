@@ -79,8 +79,7 @@ public class ${serviceImplName} implements ${serviceName} {
 	@Override
 	public Integer insert(${entityName} ${entityName?uncap_first}) throws ServiceException {
 		try {
-			${entityName?uncap_first}.setDelFlag(CommonConstant.del.normal.intValue());
-			return ${daoName?uncap_first}.insert(${entityName?uncap_first});
+			return ${daoName?uncap_first}.insertByPrimaryKeySelective(${entityName?uncap_first});
 		} catch (Exception e) {
 			logger.error("新增${entityName}失败！,${entityName?uncap_first}:" + e);
 			throw ServiceException.busiError("新增${entityName}失败！");

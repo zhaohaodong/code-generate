@@ -23,7 +23,9 @@ public interface ${daoName} {
     Integer deleteByPrimaryKey(Long id);
 
     Integer insert(${entityName} ${entityName?uncap_first});
-
+    
+ 	Integer insertByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
+ 
     ${entityName} selectByPrimaryKey(Long id);
 
     Integer updateByPrimaryKeySelective(${entityName} ${entityName?uncap_first});

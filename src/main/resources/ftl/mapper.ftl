@@ -64,12 +64,55 @@
 	    )
 	</insert>
 	
+	<!--按需新增${entityName}-->
+    <insert id="insertByPrimaryKeySelective" parameterType="${entityPackageName}.${entityName}">
+	    insert into ${tableName} (
+	    <#list columns as pro>
+	    <#if pro.fieldName != "id">
+	    <#if pro.fieldType == 'VARCHAR'>
+        <if test="${pro.proName} != null and ${pro.proName} != ''">
+	    <#else>
+        <if test="${pro.proName} != null">
+        </#if>
+	    <#if pro_index == 1>
+	    	${pro.fieldName}
+	    <#else>
+			,${pro.fieldName}
+	    </#if>
+	    </if>
+	    </#if>
+    	</#list>	
+	    )
+	    values (
+	    <#list columns as pro>
+	    <#if pro.fieldName != "id">
+	    <#if pro.fieldType == 'VARCHAR'>
+        <if test="${pro.proName} != null and ${pro.proName} != ''">
+	    <#else>
+        <if test="${pro.proName} != null">
+        </#if>
+	    <#if pro_index == 1>
+	    	${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
+	    <#else>
+			,${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
+	    </#if>
+	    </if>
+	    </#if>
+    	</#list>	
+	    )
+	</insert>
+	
 	
 	<!-- 按需修改${entityName}-->   
     <update id="updateByPrimaryKeySelective" parameterType="${entityPackageName}.${entityName}">
         update ${tableName}
         <set>
            <#list columns as pro>
+           	<#if pro.fieldType == 'VARCHAR'>
+            <if test="${pro.proName} != null and ${pro.proName} != ''">
+            <#else>
+             <if test="${pro.proName} != null">
+            </#if>
            	<#if pro_index == 0>
 	    		 ${pro.fieldName} = ${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
 	    	<#elseif pro.fieldName == "last_update_date">
@@ -77,6 +120,7 @@
     		<#else>
     			,${pro.fieldName} = ${r"#{" + pro.proName + r",jdbcType=" + pro.fieldType +r"}"}
     		</#if>
+    		</if>
     	</#list>
         </set>
         where id = ${r"#{id,jdbcType=BIGINT}"}
