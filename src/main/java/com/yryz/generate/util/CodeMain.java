@@ -18,7 +18,7 @@ public class CodeMain {
 
 	public static void main(String[] args) {
 		System.out.println("生成代码start......");
-
+		
 		//获取页面或者配置文件的参数
 		Map<String, Object> templateData = new HashMap<String, Object>();
 		templateData.put("tableName", SystemConstants.tableName);

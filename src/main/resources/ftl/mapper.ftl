@@ -46,7 +46,7 @@
   
   
   	<!-- 新增${entityName}-->
-    <insert id="insert" parameterType="${entityPackageName}.${entityName}">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="${entityPackageName}.${entityName}">
 	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0><#elseif pro_index == 1>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
 	    values (
 	    <#list columns as pro>
@@ -65,7 +65,7 @@
 	</insert>
 	
 	<!--按需新增${entityName}-->
-    <insert id="insertByPrimaryKeySelective" parameterType="${entityPackageName}.${entityName}">
+    <insert id="insertByPrimaryKeySelective" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="${entityPackageName}.${entityName}">
 	    insert into ${tableName} 
 	    <trim prefix="(" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
