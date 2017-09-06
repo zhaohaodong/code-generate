@@ -126,57 +126,57 @@
 	<table>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>表名：</label></td>
-			<td><input type="text" id="tableName" name="tableName"
+			<td><input type="text" id="tableName" name="tableName" size="50"
 				value="qshop_product" size="20">(eg:qshop_product)</td>
 		</tr>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>实体类名：</label></td>
-			<td><input type="text" id="entityName" name="entityName"
+			<td><input type="text" id="entityName" name="entityName" size="50"
 				value="Account">(eg:Account)</td>
 		</tr>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>包名前缀：</label></td>
-			<td><input type="text" id="packageNamePre"
-				name="packageNamePre" value="com.yryz.qstone.modules">(eg:com.yryz.qstone.modules.product)</td>
+			<td><input type="text" id="packageNamePre" size="50"
+				name="packageNamePre" value="com.yryz.qstone.modules.product">(eg:com.yryz.qstone.modules.product)</td>
 		</tr>
 
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>输出代码路径：</label></td>
-			<td><input type="text" id="outUrl"
-				name="outUrl" value="D:/generate">(eg:D:/generate)</td>
+			<td><input type="text" id="outUrl" size="50"
+				name="outUrl" value="D:/daimashengchengqi">(eg:D:/daimashengchengqi)</td>
 		</tr>
 
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>注释签名：</label></td>
-			<td><input type="text" id="authorName"
+			<td><input type="text" id="authorName" size="50"
 				name="authorName" value="wangsenyong">(eg:wangsenyong)</td>
 		</tr>
 		
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库名称：</label></td>
-			<td><input type="text" id="databaseName"
+			<td><input type="text" id="databaseName" size="50"
 			name="databaseName" value="qshop">(eg:qshop)</td>
 		</tr>
 
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库IP地址：</label></td>
-			<td><input type="text" id="ipName"
+			<td><input type="text" id="ipName" size="50"
 			name="ipName" value="192.168.30.37">(eg:192.168.30.37)</td>
 		</tr>
 
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库端口：</label></td>
-			<td><input type="text" id="portName"
+			<td><input type="text" id="portName" size="50"
 			name="portName" value="8066">(eg:8066)</td>
 		</tr>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库用户名：</label></td>
-			<td><input type="text" id="userName"
+			<td><input type="text" id="userName" size="50"
 			name="userName" value="mycat-activeii">(eg:mycat-activeii)</td>
 		</tr>
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>数据库密码：</label></td>
-			<td><input type="text" id="passWord"
+			<td><input type="text" id="passWord" size="50"
 			name="passWord" value="123qwe">(eg:123qwe)</td>
 		</tr>
 		<tr>
