@@ -137,7 +137,7 @@
 		<tr>
 			<td><label for="txtname"><font color="red">*</font>包名前缀：</label></td>
 			<td><input type="text" id="packageNamePre"
-				name="packageNamePre" value="com.yryz.qstone.modules">(eg:com.yryz.qstone.modules)</td>
+				name="packageNamePre" value="com.yryz.qstone.modules">(eg:com.yryz.qstone.modules.product)</td>
 		</tr>
 
 		<tr>
