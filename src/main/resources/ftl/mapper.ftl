@@ -5,8 +5,8 @@
 	<!--BaseResultMap-->
     <resultMap id="BaseResultMap" type="${entityPackageName}.${entityName}">
     <#list columns as pro>
-	<#if pro.proName == 'id'>  
-		<id column="id" property="id" jdbcType="BIGINT"/>
+	<#if pro.proName == 'kid'>  
+		<id column="kid" property="kid" jdbcType="BIGINT"/>
 	<#else>	
 		<result column="${pro.fieldName}" property="${pro.proName}" jdbcType="${pro.fieldType}"/>
 	</#if>
@@ -17,19 +17,6 @@
 	<sql id="Base_Column_List"><#list columns as pro><#if pro_index == 0>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>
     </sql>
 
-   	<!-- 查询${entityName}列表 -->
-    <select id="selectList" parameterType="${dtoPackageName}.${dtoName}" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from ${tableName} where del_flag = 0
-        <if test="startDate != null and startDate != '' ">
-             <![CDATA[  AND create_date >= ${r"#{startDate}"} ]]>
-		</if>
-		<if test="endDate != null and endDate != ''">
-	            <![CDATA[ AND create_date <= ${r"#{endDate}"}   ]]>
-		</if>
-    </select>
-    
      <!-- 查询${entityName}详情 -->
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
@@ -69,7 +56,7 @@
 	    insert into ${tableName} 
 	    <trim prefix="(" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
-	    <#if pro.fieldName != "id">
+	    <#if pro.fieldName != "kid">
 	    <#if pro.fieldType == 'VARCHAR'>
         <if test="${pro.proName} != null and ${pro.proName} != ''">
 	    <#else>
@@ -82,7 +69,7 @@
 	    </trim>
 	    <trim prefix="values (" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
-	    <#if pro.fieldName != "id">
+	    <#if pro.fieldName != "kid">
 	    <#if pro.fieldType == 'VARCHAR'>
         <if test="${pro.proName} != null and ${pro.proName} != ''">
 	    <#else>
@@ -101,7 +88,7 @@
         update ${tableName}
         <set>
            <#list columns as pro>
-           <#if pro.fieldName != "id">
+           <#if pro.fieldName != "kid">
            	<#if pro.fieldType == 'VARCHAR'>
             <if test="${pro.proName} != null and ${pro.proName} != ''">
             <#else>
@@ -115,5 +102,17 @@
         where id = ${r"#{id,jdbcType=BIGINT}"}
     </update>
     
+    <!-- 查询${entityName}列表 -->
+    <select id="selectList" parameterType="${dtoPackageName}.${dtoName}" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ${tableName} where del_flag = 0
+        <if test="startDate != null and startDate != '' ">
+             <![CDATA[  AND create_date >= ${r"#{startDate}"} ]]>
+		</if>
+		<if test="endDate != null and endDate != ''">
+	            <![CDATA[ AND create_date <= ${r"#{endDate}"}   ]]>
+		</if>
+    </select>
     
 </mapper>
