@@ -1,6 +1,6 @@
 package ${servicePackageName};
 
-import com.yryz.qstone.core.exception.ServiceException;
+import com.yryz.qshop.common.exception.ServiceException;
 import ${entityPackageName}.${entityName};
 
 /**

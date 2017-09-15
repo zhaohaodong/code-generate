@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.rpc.RpcContext;
-import com.yryz.qstone.core.constant.ExceptionEnum;
-import com.yryz.qstone.core.entity.ResultEntity;
-import com.yryz.qstone.core.exception.ServiceException;
+import com.yryz.qshop.core.constant.ExceptionEnum;
+import com.yryz.qshop.core.entity.ResultEntity;
+import com.yryz.qshop.common.exception.ServiceException;
 import ${entityPackageName}.${entityName};
 import ${servicePackageName}.${openServiceName};
 

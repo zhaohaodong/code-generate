@@ -2,8 +2,8 @@ package ${servicePackageName};
 
 import java.math.BigDecimal;
 
-import com.yryz.qstone.core.entity.PageEntity;
-import com.yryz.qstone.core.exception.ServiceException;
+import com.yryz.qshop.common.entity.PageList;
+import com.yryz.qshop.common.exception.ServiceException;
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
 
@@ -22,7 +22,7 @@ public interface ${serviceName} {
 	 * 
 	 * @return
 	 */
-	public PageEntity<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException;
+	public PageList<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException;
 
 	/**
 	 * 删除${entityName}

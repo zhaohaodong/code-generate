@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
 import ${servicePackageName}.${serviceName};
-import com.yryz.qstone.core.constant.CommonConstant;
-import com.yryz.qstone.core.entity.PageEntity;
-import com.yryz.qstone.core.exception.ServiceException;
+import com.yryz.qshop.core.constant.CommonConstant;
+import com.yryz.qshop.common.entity.PageList;
+import com.yryz.qshop.common.exception.ServiceException;
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
 import ${daoPackageName}.${daoName};
@@ -33,7 +33,7 @@ public class ${serviceImplName} implements ${serviceName} {
 	private ${daoName} ${daoName?uncap_first};
 
 	@Override
-	public PageEntity<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException {
+	public PageList<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException {
 		PageHelper.startPage(${dtoName?uncap_first}.getPageNo(), ${dtoName?uncap_first}.getPageSize());
 		List<${entityName}> ${entityName?uncap_first} = null;
 		try {
@@ -42,7 +42,7 @@ public class ${serviceImplName} implements ${serviceName} {
 			logger.error("查询${entityName}列表信息失败！,${dtoName?uncap_first}:", e);
 			throw ServiceException.busiError("查询${entityName}列表信息失败！");
 		}
-		PageEntity<${entityName}> pageEntity = new PageEntity<${entityName}>(${entityName?uncap_first});
+		PageList<${entityName}> pageEntity = new PageList<${entityName}>(${entityName?uncap_first});
 		return pageEntity;
 	}
 

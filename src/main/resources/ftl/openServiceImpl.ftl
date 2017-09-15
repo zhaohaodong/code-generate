@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ${servicePackageName}.${serviceName};
-import com.yryz.qstone.core.exception.ServiceException;
+import com.yryz.qshop.common.exception.ServiceException;
 import ${entityPackageName}.${entityName};
 import ${servicePackageName}.${openServiceName};
 
