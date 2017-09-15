@@ -33,7 +33,7 @@
   
   
   	<!-- 新增${entityName}-->
-    <insert id="insert" useGeneratedKeys="true" keyProperty="kid" keyColumn="kid" parameterType="${entityPackageName}.${entityName}">
+    <insert id="insert"  parameterType="${entityPackageName}.${entityName}">
 	    insert into ${tableName} (<#list columns as pro><#if pro_index == 0><#elseif pro_index == 1>${pro.fieldName}<#else>,${pro.fieldName}</#if></#list>)
 	    values (
 	    <#list columns as pro>
