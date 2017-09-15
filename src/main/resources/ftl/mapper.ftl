@@ -52,7 +52,7 @@
 	</insert>
 	
 	<!--按需新增${entityName}-->
-    <insert id="insertByPrimaryKeySelective" useGeneratedKeys="true" keyProperty="id" keyColumn="id" parameterType="${entityPackageName}.${entityName}">
+    <insert id="insertByPrimaryKeySelective"   parameterType="${entityPackageName}.${entityName}">
 	    insert into ${tableName} 
 	    <trim prefix="(" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
