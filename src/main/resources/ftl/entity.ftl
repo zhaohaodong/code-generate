@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * 
   * @ClassName: ${entityName}
-  * @Description: ${tableDes}实体类
+  * @Description: ${tableDes!}实体类
   * @author ${authorName}
   * @date ${currentTime}
   *
@@ -17,7 +17,7 @@ public class ${entityName} extends GenericEntity{
 	<#list columns as pro> 
 	<#if pro.proName != 'kid' && pro.proName != 'id' && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>
 	/**
-	 * ${pro.proDes}
+	 * ${pro.proDes!}
 	 */	 
     private  ${pro.proType} ${pro.proName};
     
