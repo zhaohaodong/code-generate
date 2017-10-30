@@ -2,8 +2,11 @@ package ${apiPackageName};
 
 import com.yryz.component.rpc.RpcResponse;
 import com.yryz.component.rpc.dto.PageList;
+import ${voPackageName}.${voName};
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
+import ${daoPackageName}.${daoName};
+import ${servicePackageName}.${serviceName};
 
 /**
  * 

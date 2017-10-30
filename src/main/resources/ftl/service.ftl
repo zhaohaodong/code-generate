@@ -1,8 +1,9 @@
 package ${servicePackageName};
 
 import com.yryz.common.service.BaseService;
-import ${entityPackageName}.${entityName};
 import ${dtoPackageName}.${dtoName};
+import ${entityPackageName}.${entityName};
+import ${daoPackageName}.${daoName};
 
 import org.springframework.stereotype.Repository;
 

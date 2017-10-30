@@ -9,12 +9,12 @@ import com.yryz.component.rpc.dto.PageList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ${voPackageName}.${voName};
+import ${dtoPackageName}.${dtoName};
+import ${entityPackageName}.${entityName};
+import ${daoPackageName}.${daoName};
+import ${servicePackageName}.${serviceName};
 
-import ${daoPackageName};
-import ${dtoPackageName};
-import ${entityPackageName};
-import ${servicePackageName};
-import ${voPackageName};
 
 
 import java.util.List;

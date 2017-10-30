@@ -3,9 +3,11 @@ package com.yryz.openapi.${entityName?uncap_first}.web;
 import com.yryz.component.rpc.RpcResponse;
 import com.yryz.component.rpc.dto.PageList;
 
-import ${apiPackageName}.${apiName};
 import ${voPackageName}.${voName};
 import ${dtoPackageName}.${dtoName};
+import ${entityPackageName}.${entityName};
+import ${daoPackageName}.${daoName};
+import ${servicePackageName}.${serviceName};
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
