@@ -43,6 +43,9 @@ public class CodeMain {
 		templateData.put("userName", SystemConstants.userName);
 		templateData.put("passWord", SystemConstants.passWord);
 
+		templateData.put("primaryId", SystemConstants.primaryId);
+		templateData.put("businessId", SystemConstants.businessId);
+
 		DataService dataService = new DataServiceImpl();
 
 		try {

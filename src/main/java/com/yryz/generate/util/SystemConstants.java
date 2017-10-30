@@ -36,6 +36,8 @@ public class SystemConstants {
 	public static final String userName = properties.getProperty("userName");
 	public static final String passWord = properties.getProperty("passWord");
 	public static final String authorName = properties.getProperty("authorName");
-	
-	
+
+	public static final String primaryId = properties.getProperty("primaryId");
+	public static final String businessId = properties.getProperty("businessId");
+
 }

@@ -89,10 +89,10 @@ public class DataServiceImpl implements DataService {
 //					openControllerName + ".java");
 
 			// 生成Controller实现类  
-			String controllerName = String.format("%sController", templateData.get("entityName").toString());
+			/*String controllerName = String.format("%sController", templateData.get("entityName").toString());
 			templateData.put("controllerName", controllerName);
 			this.generateFile("controller.ftl", templateData, templateData.get("controllerPackageName").toString(),
-					controllerName + ".java");
+					controllerName + ".java");*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();

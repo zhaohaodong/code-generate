@@ -48,30 +48,30 @@ public class ${serviceImplName} implements ${serviceName} {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
-	public Integer delete(Long id) throws ServiceException {
-		if(id==null){
-			logger.error("${entityName}ID不能为空！,id:"+id);
-			throw ServiceException.paramsError("${entityName}ID不能为空！",String.valueOf(id));
+	public Integer delete(Long ${businessId}) throws ServiceException {
+		if(${businessId}==null){
+			logger.error("${entityName}ID不能为空！,${businessId}:"+${businessId});
+			throw ServiceException.paramsError("${entityName}ID不能为空！",String.valueOf(${businessId}));
 		}
 		
 		${entityName} ${entityName?uncap_first}=null;
 		try {
-			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(id);
+			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(${businessId});
 		} catch (Exception e) {
-			logger.error("查询${entityName}详情失败！,id:"+id + e);
-			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(id));
+			logger.error("查询${entityName}详情失败！,${businessId}:"+${businessId} + e);
+			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(${businessId}));
 		}
 		
 		if(${entityName?uncap_first}==null){
 			logger.error("${entityName}不存在！");
-			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(id));
+			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(${businessId}));
 		}
 		try {
 			${entityName?uncap_first}.setDelFlag(CommonConstant.del.deleted.intValue());
 			return ${daoName?uncap_first}.updateByPrimaryKeySelective(${entityName?uncap_first});
 		} catch (Exception e) {
-			logger.error("删除${entityName}失败！,id:" + id, e);
-			throw ServiceException.busiError("删除${entityName}失败！",String.valueOf(id));
+			logger.error("删除${entityName}失败！,${businessId}:" + ${businessId}, e);
+			throw ServiceException.busiError("删除${entityName}失败！",String.valueOf(${businessId}));
 		}
 	}
 
@@ -88,18 +88,18 @@ public class ${serviceImplName} implements ${serviceName} {
 
 	
 	@Override
-	public ${entityName} detail(Long id) throws ServiceException {
-		if(id==null){
-			logger.error("${entityName}ID不能为空！,id:"+id);
-			throw ServiceException.paramsError("${entityName}ID不能为空！",String.valueOf(id));
+	public ${entityName} detail(Long ${businessId}) throws ServiceException {
+		if(${businessId}==null){
+			logger.error("${entityName}ID不能为空！,${businessId}:"+${businessId});
+			throw ServiceException.paramsError("${entityName}ID不能为空！",String.valueOf(${businessId}));
 		}
 		
 		${entityName} ${entityName?uncap_first}=null;
 		try {
-			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(id);
+			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(${businessId});
 		} catch (Exception e) {
-			logger.error("查询${entityName}详情失败！,id:"+id + e);
-			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(id));
+			logger.error("查询${entityName}详情失败！,${businessId}:"+${businessId} + e);
+			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(${businessId}));
 		}
 		return ${entityName?uncap_first};
 	}
@@ -107,21 +107,21 @@ public class ${serviceImplName} implements ${serviceName} {
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public Integer update(${entityName} record) throws ServiceException {
-		if(record==null || record.getId()==null){
-			logger.error("不存在该${entityName}！,id:"+record.getId());
-			throw ServiceException.paramsError("不存在该${entityName}！",String.valueOf(record.getId()));
+		if(record==null || record.get${businessId?cap_first}()==null){
+			logger.error("不存在该${entityName}！,${businessId}:"+record.get${businessId?cap_first}());
+			throw ServiceException.paramsError("不存在该${entityName}！",String.valueOf(record.get${businessId?cap_first}()));
 		}
 		
 		${entityName} ${entityName?uncap_first}=null;
 		try {
-			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(record.getId());
+			${entityName?uncap_first}=${daoName?uncap_first}.selectByPrimaryKey(record.get${businessId?cap_first}());
 		} catch (Exception e) {
-			logger.error("查询${entityName}详情失败！,id:"+record.getId() + e);
-			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(record.getId()));
+			logger.error("查询${entityName}详情失败！,${businessId}:"+record.get${businessId?cap_first}() + e);
+			throw ServiceException.busiError("查询${entityName}详情失败！",String.valueOf(record.get${businessId?cap_first}()));
 		}
 		if(${entityName?uncap_first}==null){
 			logger.error("${entityName}不存在！");
-			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(record.getId()));
+			throw ServiceException.paramsError("${entityName}不存在", String.valueOf(record.get${businessId?cap_first}()));
 		}
 		
 		
@@ -129,7 +129,7 @@ public class ${serviceImplName} implements ${serviceName} {
 			return ${daoName?uncap_first}.updateByPrimaryKeySelective(record);
 		} catch (Exception e) {
 			logger.error("更新${entityName}详情失败！,${entityName?uncap_first}:" + e);
-			throw ServiceException.busiError("更新${entityName}详情失败！",String.valueOf(record.getId()));
+			throw ServiceException.busiError("更新${entityName}详情失败！",String.valueOf(record.get${businessId?cap_first}()));
 		}
 	}
 

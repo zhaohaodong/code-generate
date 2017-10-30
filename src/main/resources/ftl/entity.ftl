@@ -15,7 +15,7 @@ public class ${entityName} extends GenericEntity{
 	
 	<#--属性遍历-->
 	<#list columns as pro> 
-	<#if pro.proName != 'kid' && pro.proName != 'id' && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>
+	<#if pro.proName != primaryId && pro.proName != businessId && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>
 	/**
 	 * ${pro.proDes!}
 	 */	 
@@ -26,7 +26,7 @@ public class ${entityName} extends GenericEntity{
 
 	<#--属性get||set方法-->
 	<#list columns as pro>
-	<#if pro.proName != 'kid' && pro.proName != 'id' && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>  
+	<#if pro.proName != primaryId && pro.proName != businessId && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>
 	public ${pro.proType} get${pro.proName?cap_first}() {
 		return this.${pro.proName};
 	}

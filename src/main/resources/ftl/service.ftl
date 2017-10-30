@@ -30,7 +30,7 @@ public interface ${serviceName} {
 	 * @param id
 	 * @return
 	 */
-	Integer delete(Long id) throws ServiceException;
+	Integer delete(Long ${businessId}) throws ServiceException;
 
 	/**
 	 * 新增${entityName}
@@ -46,7 +46,7 @@ public interface ${serviceName} {
 	 * @param id
 	 * @return
 	 */
-	${entityName} detail(Long id) throws ServiceException;
+	${entityName} detail(Long ${businessId}) throws ServiceException;
 
 	/**
 	 * ${entityName}更新

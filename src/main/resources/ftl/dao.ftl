@@ -20,13 +20,13 @@ public interface ${daoName} {
 
     List<${entityName}> selectList(${dtoName} ${dtoName?uncap_first});
 
-    Integer deleteByPrimaryKey(Long id);
+    Integer deleteByPrimaryKey(Long ${businessId});
 
     Integer insert(${entityName} ${entityName?uncap_first});
     
  	Integer insertByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
  
-    ${entityName} selectByPrimaryKey(Long id);
+    ${entityName} selectByPrimaryKey(Long ${businessId});
 
     Integer updateByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
 }

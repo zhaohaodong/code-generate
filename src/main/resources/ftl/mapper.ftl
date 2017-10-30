@@ -5,8 +5,8 @@
 	<!--BaseResultMap-->
     <resultMap id="BaseResultMap" type="${entityPackageName}.${entityName}">
     <#list columns as pro>
-	<#if pro.proName == 'kid'>  
-		<id column="kid" property="kid" jdbcType="BIGINT"/>
+	<#if pro.proName == primaryId>
+		<id column="${primaryId}" property="${primaryId}" jdbcType="BIGINT"/>
 	<#else>	
 		<result column="${pro.fieldName}" property="${pro.proName}" jdbcType="${pro.fieldType}"/>
 	</#if>
@@ -22,13 +22,14 @@
         select
         <include refid="Base_Column_List"/>
         from ${tableName}
-        where del_flag = 0 and id = ${r"#{id,jdbcType=BIGINT}"}
+        where del_flag = 0
+		and ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
     </select>
     
     <!-- 删除${entityName}-->
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
    	 	delete from ${tableName}
-    	where id = ${r"#{id,jdbcType=BIGINT}"}
+    	where ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
     </delete>
   
   
@@ -56,7 +57,7 @@
 	    insert into ${tableName} 
 	    <trim prefix="(" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
-	    <#if pro.fieldName != "kid">
+	    <#if pro.fieldName != primaryId>
 	    <#if pro.fieldType == 'VARCHAR'>
         <if test="${pro.proName} != null and ${pro.proName} != ''">
 	    <#else>
@@ -69,7 +70,7 @@
 	    </trim>
 	    <trim prefix="values (" suffix=")" suffixOverrides=",">
 	    <#list columns as pro>
-	    <#if pro.fieldName != "kid">
+	    <#if pro.fieldName != primaryId>
 	    <#if pro.fieldType == 'VARCHAR'>
         <if test="${pro.proName} != null and ${pro.proName} != ''">
 	    <#else>
@@ -88,7 +89,7 @@
         update ${tableName}
         <set>
            <#list columns as pro>
-           <#if pro.fieldName != "kid">
+           <#if pro.fieldName != primaryId>
            	<#if pro.fieldType == 'VARCHAR'>
             <if test="${pro.proName} != null and ${pro.proName} != ''">
             <#else>
