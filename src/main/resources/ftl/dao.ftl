@@ -2,7 +2,7 @@ package ${daoPackageName};
 
 import ${entityPackageName}.${entityName};
 import ${dtoPackageName}.${dtoName};
-
+import com.yryz.common.dao.BaseDao;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
   *
  */
 @Repository
-public interface ${daoName} {
+public interface ${daoName} extends BaseDao {
 
     List<${entityName}> selectList(${dtoName} ${dtoName?uncap_first});
 

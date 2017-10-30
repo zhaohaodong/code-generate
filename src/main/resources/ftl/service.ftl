@@ -1,59 +1,33 @@
 package ${servicePackageName};
 
-import java.math.BigDecimal;
-
-import com.yryz.qshop.common.entity.PageList;
-import com.yryz.qshop.common.exception.ServiceException;
-import ${dtoPackageName}.${dtoName};
+import com.yryz.common.service.BaseService;
 import ${entityPackageName}.${entityName};
+import ${dtoPackageName}.${dtoName};
+
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 
- * @ClassName: ${serviceName}
- * @Description: ${serviceName}接口
- * @author ${authorName}
- * @date ${currentTime}
- *
+  * @ClassName: ${serviceName}
+  * @Description: ${entityName}业务访问接口
+  * @author ${authorName}
+  * @date ${currentTime}
+  *
  */
-public interface ${serviceName} {
+@Repository
+public interface ${serviceName} extends BaseService {
 
-	/**
-	 * ${entityName}列表
-	 * 
-	 * @return
-	 */
-	public PageList<${entityName}> list(${dtoName} ${dtoName?uncap_first}) throws ServiceException;
+    List<${entityName}> selectList(${dtoName} ${dtoName?uncap_first});
 
-	/**
-	 * 删除${entityName}
-	 * 
-	 * @param id
-	 * @return
-	 */
-	Integer delete(Long ${businessId}) throws ServiceException;
+    Integer deleteByPrimaryKey(Long ${businessId});
 
-	/**
-	 * 新增${entityName}
-	 * 
-	 * @param ${entityName?uncap_first}
-	 * @return
-	 */
-	Integer insert(${entityName} ${entityName?uncap_first}) throws ServiceException;
+    Integer insert(${entityName} ${entityName?uncap_first});
+    
+ 	Integer insertByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
+ 
+    ${entityName} selectByPrimaryKey(Long ${businessId});
 
-	/**
-	 * 查询${entityName}信息
-	 * 
-	 * @param id
-	 * @return
-	 */
-	${entityName} detail(Long ${businessId}) throws ServiceException;
-
-	/**
-	 * ${entityName}更新
-	 * 
-	 * @param ${entityName?uncap_first}
-	 * @return
-	 */
-	Integer update(${entityName} ${entityName?uncap_first}) throws ServiceException;
-
+    Integer updateByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
 }
