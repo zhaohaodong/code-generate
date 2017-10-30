@@ -6,8 +6,7 @@ import com.yryz.component.rpc.dto.PageList;
 import ${voPackageName}.${voName};
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
-import ${daoPackageName}.${daoName};
-import ${servicePackageName}.${serviceName};
+import ${apiPackageName}.${apiName};
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
