@@ -34,7 +34,15 @@ public class ${entityName} extends GenericEntity{
 
 	<#--属性get||set方法-->
 	<#list columns as pro>
-	<#if pro.proName != primaryId && pro.proName != businessId && pro.proName != 'createUserId' && pro.proName != 'createDate' && pro.proName != 'lastUpdateUserId' && pro.proName != 'lastUpdateDate'>
+	<#if pro.proName != primaryId
+	&& pro.proName != businessId
+	&& pro.proName != 'createUserId'
+	&& pro.proName != 'createDate'
+	&& pro.proName != 'lastUpdateUserId'
+	&& pro.proName != 'lastUpdateDate'
+	&& pro.proName != 'revision'
+	&& pro.proName != 'moduleEnum'
+	>
 	public ${pro.proType} get${pro.proName?cap_first}() {
 		return this.${pro.proName};
 	}
