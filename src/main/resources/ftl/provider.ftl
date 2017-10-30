@@ -29,7 +29,7 @@ public class ${providerName} implements ${apiName} {
 	* */
 	public RpcResponse<${voName}> get(Long id) {
 		try {
-			 return ResponesModel.returnObjectSuccess(${voName}.class, ${serviceName?uncap_first}.get(${voName}.class, id));
+			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${voName}.class, id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
 			return ResponesModel.returnException(e);
@@ -44,7 +44,7 @@ public class ${providerName} implements ${apiName} {
 	*/
     public RpcResponse<PageList<${voName}>> list(${dtoName} ${dtoName?uncap_first}) {
         try {
-       		 return ResponesModel.returnListSuccess(${serviceName?uncap_first}.selectList(${dtoName?uncap_first}));
+			 return ResponseModel.returnListSuccess(${serviceName?uncap_first.selectList(${dtoName?uncap_first}));
         } catch (Exception e) {
         	logger.error("获取${entityName}列表失败", e);
        		 return ResponesModel.returnException(e);
