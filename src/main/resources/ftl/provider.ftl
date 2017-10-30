@@ -1,8 +1,7 @@
 package ${providerPackageName};
-import com.yryz.common.web.ResponesModel;
+import com.yryz.common.web.ResponseModel;
 import com.yryz.component.rpc.RpcResponse;
 import com.yryz.component.rpc.dto.PageList;
-import com.yryz.component.rpc.internal.DubboResponse;
 
 import ${apiPackageName}.${apiName};
 import ${voPackageName}.${voName};
@@ -32,7 +31,7 @@ public class ${providerName} implements ${apiName} {
 			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${voName}.class, id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
-			return ResponesModel.returnException(e);
+			return ResponseModel.returnException(e);
 		}
     }
 
@@ -47,7 +46,7 @@ public class ${providerName} implements ${apiName} {
 			 return ResponseModel.returnListSuccess(${serviceName?uncap_first}.selectList(${dtoName?uncap_first}));
         } catch (Exception e) {
         	logger.error("获取${entityName}列表失败", e);
-       		 return ResponesModel.returnException(e);
+       		 return ResponseModel.returnException(e);
         }
     }
 

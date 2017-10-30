@@ -3,7 +3,7 @@ package ${servicePackageName};
 import com.yryz.common.service.BaseService;
 import ${dtoPackageName}.${dtoName};
 import ${entityPackageName}.${entityName};
-
+import ${voPackageName}.${voName};
 import org.springframework.stereotype.Repository;
 
 import com.yryz.component.rpc.dto.PageList;
