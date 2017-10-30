@@ -1,5 +1,5 @@
 package ${voPackageName};
-
+import java.io.Serializable;
 import ${entityPackageName}.${entityName};
 
 /**
@@ -9,7 +9,7 @@ import ${entityPackageName}.${entityName};
  * @date ${currentTime}
  *
  */
-public class ${voName}{
+public class ${voName} implements Serializable {
 
-	
+
 }
