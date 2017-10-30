@@ -17,14 +17,14 @@ import ${entityPackageName}.${entityName};
 public interface ${apiName} {
 
 	/**
-	*  获取${entityName}明细
+	*  获取${voName}明细
 	*  @param  id
 	*  @return
 	* */
-	RpcResponse<${entityName}> get(Long id);
+	RpcResponse<${voName}> get(Long id);
 
     /**
-    * 获取${entityName}列表
+    * 获取${voName}列表
     * @param ${dtoName?uncap_first}
     * @return
     * */
