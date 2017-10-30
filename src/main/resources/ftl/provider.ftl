@@ -27,7 +27,7 @@ public class ${providerName} implements ${apiName} {
 	*  @param  id
 	*  @return
 	* */
-	public RpcResponse<CollectVo> get(Long id) {
+	public RpcResponse<${voName}> get(Long id) {
 		try {
 			 return ResponesModel.returnObjectSuccess(${voName}.class, ${serviceName?uncap_first}.get(${voName}.class, id));
 		} catch (Exception e) {

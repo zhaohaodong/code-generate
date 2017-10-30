@@ -36,7 +36,7 @@ public class DataServiceImpl implements DataService {
 			templateData.put("serviceImplPackageName", String.format(packageNamePre + ".service.impl",
 					templateData.get("entityName").toString().toLowerCase()));
 
-			templateData.put("apiPackageName", String.format(packageNamePre + ".api",
+			templateData.put("apiPackageName", String.format(packageNamePre + "",
 					templateData.get("entityName").toString().toLowerCase()));
 
 			templateData.put("providerPackageName", String.format(packageNamePre  + ".provider",
