@@ -44,7 +44,7 @@ public class ${providerName} implements ${apiName} {
 	*/
     public RpcResponse<PageList<${voName}>> list(${dtoName} ${dtoName?uncap_first}) {
         try {
-			 return ResponseModel.returnListSuccess(${serviceName?uncap_first.selectList(${dtoName?uncap_first}));
+			 return ResponseModel.returnListSuccess(${serviceName?uncap_first}.selectList(${dtoName?uncap_first}));
         } catch (Exception e) {
         	logger.error("获取${entityName}列表失败", e);
        		 return ResponesModel.returnException(e);
