@@ -6,7 +6,7 @@ import ${entityPackageName}.${entityName};
 
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.yryz.component.rpc.dto.PageList;
 
 /**
  * 
@@ -19,6 +19,6 @@ import java.util.List;
 @Repository
 public interface ${serviceName} extends BaseService {
 
-    List<${entityName}> selectList(${dtoName} ${dtoName?uncap_first});
+   PageList<${voName}> selectList(${dtoName} ${dtoName?uncap_first});
 
 }
