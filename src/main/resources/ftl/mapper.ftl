@@ -108,12 +108,7 @@
         select
         <include refid="Base_Column_List"/>
         from ${tableName} where del_flag = 0
-        <if test="startDate != null and startDate != '' ">
-             <![CDATA[  AND create_date >= ${r"#{startDate}"} ]]>
-		</if>
-		<if test="endDate != null and endDate != ''">
-	            <![CDATA[ AND create_date <= ${r"#{endDate}"}   ]]>
-		</if>
+
     </select>
     
 </mapper>
