@@ -33,6 +33,9 @@ public class DataServiceImpl implements DataService {
 			templateData.put("servicePackageName", String.format(packageNamePre + ".service",
 					templateData.get("entityName").toString().toLowerCase()));
 
+			templateData.put("serviceImplPackageName", String.format(packageNamePre + ".service.impl",
+					templateData.get("entityName").toString().toLowerCase()));
+
 			templateData.put("apiPackageName", String.format(packageNamePre + ".api",
 					templateData.get("entityName").toString().toLowerCase()));
 
@@ -81,6 +84,13 @@ public class DataServiceImpl implements DataService {
 			templateData.put("serviceName", serviceName);
 			this.generateFile("service.ftl", templateData, templateData.get("servicePackageName").toString(),
 					serviceName + ".java");
+
+			// 生成Service实现类
+			String serviceImplName = String.format("%sServiceImpl", templateData.get("entityName").toString());
+			templateData.put("serviceImplName", serviceImplName);
+			this.generateFile("serviceImpl.ftl", templateData, templateData.get("serviceImplPackageName").toString(),
+					serviceImplName + ".java");
+
 
 			// 生成API
 			String apiName = String.format("%sApi", templateData.get("entityName").toString());
