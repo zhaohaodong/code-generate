@@ -1,6 +1,6 @@
 package ${dtoPackageName};
 
-import ${entityPackageName}.${entityName};
+import com.yryz.component.rpc.dto.PageList;
 
 /**
  * @ClassName: ${dtoName}
@@ -9,21 +9,7 @@ import ${entityPackageName}.${entityName};
  * @date ${currentTime}
  *
  */
-public class ${dtoName} extends ${entityName} {
-	/**
-	 * 开始时间
-	 */
-	private String startDate;
-
-	/**
-	 * 结束时间
-	 */
-	private String endDate;
-
-	/*
-	 * 排序方式
-	 */
-	private String orderBy;
+public class ${dtoName} extends PageList {
 
 	/*
 	 * 分页-当前第几页
@@ -34,14 +20,6 @@ public class ${dtoName} extends ${entityName} {
 	 * 分页-每页显示记录数量
 	 */
 	private Integer pageSize = 10;
-
-	public String getOrderBy() {
-		return orderBy;
-	}
-
-	public void setOrderBy(String orderBy) {
-		this.orderBy = orderBy;
-	}
 
 	public Integer getPageNo() {
 		return pageNo;
@@ -59,21 +37,4 @@ public class ${dtoName} extends ${entityName} {
 		this.pageSize = pageSize;
 	}
 
-	public String getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-
-	
 }
