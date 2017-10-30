@@ -7,8 +7,6 @@ import com.yryz.component.rpc.internal.DubboResponse;
 import ${apiPackageName}.${apiName};
 import ${voPackageName}.${voName};
 import ${dtoPackageName}.${dtoName};
-import ${entityPackageName}.${entityName};
-import ${daoPackageName}.${daoName};
 import ${servicePackageName}.${serviceName};
 
 import org.slf4j.Logger;

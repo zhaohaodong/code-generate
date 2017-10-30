@@ -63,7 +63,7 @@ public class DataServiceImpl implements DataService {
 
 			// 生成VO
 			String voName = String.format("%sVo", templateData.get("entityName").toString());
-			templateData.put("voName", dtoName);
+			templateData.put("voName", voName);
 			this.generateFile("vo.ftl", templateData, templateData.get("voPackageName").toString(),
 					voName + ".java");
 
