@@ -20,13 +20,4 @@ public interface ${daoName} extends BaseDao {
 
     List<${entityName}> selectList(${dtoName} ${dtoName?uncap_first});
 
-    Integer deleteByPrimaryKey(Long ${businessId});
-
-    Integer insert(${entityName} ${entityName?uncap_first});
-    
- 	Integer insertByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
- 
-    ${entityName} selectByPrimaryKey(Long ${businessId});
-
-    Integer updateByPrimaryKeySelective(${entityName} ${entityName?uncap_first});
 }

@@ -1,10 +1,12 @@
-package com.yryz.openapi.event.web;
+package com.yryz.openapi.${entityName?uncap_first}.web;
 
 import com.yryz.component.rpc.RpcResponse;
 import com.yryz.component.rpc.dto.PageList;
-import com.yryz.qsource.modules.collect.CollectApi;
-import com.yryz.qsource.modules.collect.dto.CollectDto;
-import com.yryz.qsource.modules.collect.vo.CollectVo;
+
+import ${apiPackageName}.${apiName};
+import ${voPackageName}.${voName};
+import ${dtoPackageName}.${dtoName};
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,21 +14,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("services/app/v1/collect")
-public class CollectController {
+@RequestMapping("services/app/v1/${entityName?uncap_first}")
+public class ${controllerName} {
    @Autowired
-   private CollectApi collectApi;
+   private ${apiName} ${apiName?uncap_first};
 
    @ResponseBody
    @RequestMapping(value="/detail", method = RequestMethod.GET)
-   public RpcResponse<CollectVo> get(Long id) {
-       return collectApi.get(id);
+   public RpcResponse<${voName}> get(Long id) {
+       return ${apiName?uncap_first}.get(id);
    }
 
    @ResponseBody
    @RequestMapping(value="/list", method = RequestMethod.GET)
-   public RpcResponse<PageList<CollectVo>> list(CollectDto collect) {
-           return collectApi.list(collect);
+   public RpcResponse<PageList<${voName}>> list(${dtoName} ${dtoName?uncap_first}) {
+        return ${apiName?uncap_first}.list(${dtoName?uncap_first});
    }
 
 }

@@ -18,7 +18,7 @@
     </sql>
 
      <!-- 查询${entityName}详情 -->
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <select id="selectByKid" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
         from ${tableName}
@@ -27,7 +27,7 @@
     </select>
     
     <!-- 删除${entityName}-->
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="delete" parameterType="java.lang.Long">
    	 	delete from ${tableName}
     	where ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
     </delete>
@@ -85,7 +85,7 @@
 	
 	
 	<!-- 按需修改${entityName}-->   
-    <update id="updateByPrimaryKeySelective" parameterType="${entityPackageName}.${entityName}">
+    <update id="update" parameterType="${entityPackageName}.${entityName}">
         update ${tableName}
         <set>
            <#list columns as pro>

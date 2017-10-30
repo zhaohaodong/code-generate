@@ -27,9 +27,6 @@ public interface ${apiName} {
     * @param ${dtoName?uncap_first}
     * @return
     * */
-    RpcResponse<PageList<${entityName}>> list(CollectDto ${dtoName?uncap_first});
-
-    RpcResponse<Boolean> add(${entityName} ${dtoName?uncap_first});
-
+    RpcResponse<PageList<${voName}>> list(${dtoName} ${dtoName?uncap_first});
 
 }

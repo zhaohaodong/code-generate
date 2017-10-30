@@ -21,7 +21,7 @@ public class ${providerName} implements ${apiName} {
 	private static final Logger logger = LoggerFactory.getLogger(${providerName}.class);
 
 	@Autowired
-	private CollectSerivce collectSerivce;
+	private ${serviceName} ${serviceName?uncap_first};
 
 	/**
 	*  获取${entityName}明细
@@ -30,7 +30,7 @@ public class ${providerName} implements ${apiName} {
 	* */
 	public RpcResponse<CollectVo> get(Long id) {
 		try {
-			 return ResponesModel.returnObjectSuccess(CollectVo.class, collectSerivce.get(CollectVo.class, id));
+			 return ResponesModel.returnObjectSuccess(${voName}.class, ${serviceName?uncap_first}.get(${voName}.class, id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
 			return ResponesModel.returnException(e);
@@ -39,31 +39,17 @@ public class ${providerName} implements ${apiName} {
 
     /**
     * 获取${entityName}列表
-    * @param collect
+    * @param ${dtoName?uncap_first}
     * @return
     *
 	*/
-    public RpcResponse<PageList<CollectVo>> list(CollectDto collect) {
+    public RpcResponse<PageList<${voName}>> list(${dtoName} ${dtoName?uncap_first}) {
         try {
-        return ResponesModel.returnListSuccess(collectSerivce.selectList(collect));
+       		 return ResponesModel.returnListSuccess(${serviceName?uncap_first}.selectList(${dtoName?uncap_first}));
         } catch (Exception e) {
-        logger.error("获取${entityName}列表失败", e);
-        return ResponesModel.returnException(e);
+        	logger.error("获取${entityName}列表失败", e);
+       		 return ResponesModel.returnException(e);
         }
     }
 
-    public RpcResponse<Boolean> add(Collect collect) {
-		DubboResponse<Boolean> response = new DubboResponse<Boolean>(null, null, null, null, null);
-		response.setStatus(true);
-		try {
-			collectSerivce.insert(new Collect());
-			response.setData(true);
-			response.setMsg("success");
-		} catch (Exception e) {
-			response.setStatus(false);
-			response.setErrorMsg("add fail");
-		}
-
-			return response;
-		}
-   }
+}
