@@ -30,8 +30,16 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
 
     public PageList<${voName}> selectList(${dtoName} ${dtoName?uncap_first}){
         PageHelper.startPage(${dtoName?uncap_first}.getCurrentPage(), ${dtoName?uncap_first}.getPageSize());
-        List<${voName}> list = ${daoName?uncap_first}.selectList(${dtoName?uncap_first});
-         return new PageModel<${voName}>().getPageList(list);
+        List<${entityName}> list = ${daoName?uncap_first}.selectList(${dtoName?uncap_first});
+        List<${voName}> ${voName?uncap_first}List = new ArrayList <${voName}>();
+        if(list != null && list.size() > 0) {
+            for(${entityName} ${entityName?uncap_first} : list){
+                ${voName} ${voName?uncap_first} = new ${voName}();
+                //Moments to MomentsVo
+                ${voName?uncap_first}List.add(${voName?uncap_first});
+            }
+        }
+        return new PageModel<MomentsVo>().getPageList(${voName?uncap_first}List);
     }
 
  }
