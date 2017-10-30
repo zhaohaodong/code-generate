@@ -25,7 +25,7 @@ public class DataServiceImpl implements DataService {
 			templateData.put("voPackageName", String.format(packageNamePre + ".vo",
 					templateData.get("entityName").toString().toLowerCase()));
 
-			templateData.put("daoPackageName", String.format(packageNamePre + ".dao",
+			templateData.put("daoPackageName", String.format(packageNamePre + ".dao.persistence",
 					templateData.get("entityName").toString().toLowerCase()));
 			templateData.put("mapperPackageName", packageNamePre + ".mapper");
 
