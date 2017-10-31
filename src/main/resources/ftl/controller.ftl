@@ -21,9 +21,9 @@ public class ${controllerName} {
    private ${apiName} ${apiName?uncap_first};
 
    @ResponseBody
-   @RequestMapping(value="/detail", method = RequestMethod.GET)
-   public RpcResponse<${voName}> get(Long id) {
-       return ${apiName?uncap_first}.get(id);
+   @RequestMapping(value="/single", method = RequestMethod.GET)
+   public RpcResponse<${voName}> detail(Long id) {
+       return ${apiName?uncap_first}.detail(id);
    }
 
    @ResponseBody

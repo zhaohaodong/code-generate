@@ -26,14 +26,28 @@ public class ${providerName} implements ${apiName} {
 	*  @param  id
 	*  @return
 	* */
-	public RpcResponse<${voName}> get(Long id) {
+	public RpcResponse<${entityName}> get(Long id) {
 		try {
-			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${voName}.class, id));
+			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${entityName}.class, id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
 			return ResponseModel.returnException(e);
 		}
     }
+
+	/**
+	*  获取${entityName}明细
+	*  @param  id
+	*  @return
+	* */
+	public RpcResponse<${voName}> detail(Long id) {
+		try {
+			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.detail(id));
+		} catch (Exception e) {
+			logger.error("获取${entityName}明细失败", e);
+			return ResponseModel.returnException(e);
+		}
+	}
 
     /**
     * 获取${entityName}列表

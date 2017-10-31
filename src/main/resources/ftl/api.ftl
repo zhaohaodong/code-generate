@@ -21,7 +21,14 @@ public interface ${apiName} {
 	*  @param  id
 	*  @return
 	* */
-	RpcResponse<${voName}> get(Long id);
+	RpcResponse<${entityName}> get(Long id);
+
+    /**
+    *  获取${entityName}明细
+    *  @param  id
+    *  @return
+    * */
+    RpcResponse<${voName}> detail(Long id);
 
     /**
     * 获取${entityName}列表

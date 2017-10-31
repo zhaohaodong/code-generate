@@ -42,4 +42,13 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
         return new PageModel<${voName}>().getPageList(${voName?uncap_first}List);
     }
 
+
+    public ${voName} detail(Long id) {
+        ${entityName} ${entityName?uncap_first} = momentsDao.selectByKid(${entityName}.class,id);
+        ${voName} ${voName?uncap_first} = new ${voName}();
+        if (moments != null) {
+            //${entityName} to ${voName}
+        }
+        return ${voName?uncap_first};
+    }
  }
