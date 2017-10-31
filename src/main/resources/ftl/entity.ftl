@@ -22,6 +22,7 @@ public class ${entityName} extends GenericEntity{
 	&& pro.proName != 'lastUpdateDate'
 	&& pro.proName != 'revision'
 	&& pro.proName != 'moduleEnum'
+	&& pro.proName != 'tenantId'
 	>
 
 	/**
@@ -42,6 +43,7 @@ public class ${entityName} extends GenericEntity{
 	&& pro.proName != 'lastUpdateDate'
 	&& pro.proName != 'revision'
 	&& pro.proName != 'moduleEnum'
+	&& pro.proName != 'tenantId'
 	>
 	public ${pro.proType} get${pro.proName?cap_first}() {
 		return this.${pro.proName};
