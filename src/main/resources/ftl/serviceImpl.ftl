@@ -35,11 +35,11 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
         if(list != null && list.size() > 0) {
             for(${entityName} ${entityName?uncap_first} : list){
                 ${voName} ${voName?uncap_first} = new ${voName}();
-                //Moments to MomentsVo
+                //${entityName} to ${voName}
                 ${voName?uncap_first}List.add(${voName?uncap_first});
             }
         }
-        return new PageModel<MomentsVo>().getPageList(${voName?uncap_first}List);
+        return new PageModel<${voName}>().getPageList(${voName?uncap_first}List);
     }
 
  }
