@@ -100,7 +100,7 @@
     		</#if>
     	</#list>
         </set>
-        where id = ${r"#{id,jdbcType=BIGINT}"}
+        where ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
     </update>
     
     <!-- 查询${entityName}列表 -->

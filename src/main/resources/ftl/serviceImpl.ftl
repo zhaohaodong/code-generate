@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ${voPackageName}.${voName};
+import ${entityPackageName}.${entityName};
 import ${dtoPackageName}.${dtoName};
 import ${daoPackageName}.${daoName};
 import ${servicePackageName}.${serviceName};
-
-
-
+import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName} {
