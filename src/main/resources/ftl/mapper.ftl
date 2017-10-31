@@ -89,7 +89,7 @@
         update ${tableName}
         <set>
            <#list columns as pro>
-           <#if pro.fieldName != primaryId>
+           <#if pro.fieldName != primaryId && pro.fieldName != businessId>
            	<#if pro.fieldType == 'VARCHAR'>
             <if test="${pro.proName} != null and ${pro.proName} != ''">
             <#else>
