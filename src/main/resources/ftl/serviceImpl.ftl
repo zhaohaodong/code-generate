@@ -1,6 +1,6 @@
 package ${serviceImplPackageName};
 
-import com.github.pagehelper.PageHelper;
+import com.yryz.common.utils.PageUtils;
 import com.github.pagehelper.PageInfo;
 import com.yryz.common.dao.BaseDao;
 import com.yryz.common.service.BaseServiceImpl;
@@ -29,7 +29,7 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
     }
 
     public PageList<${voName}> selectList(${dtoName} ${dtoName?uncap_first}){
-        PageHelper.startPage(${dtoName?uncap_first}.getCurrentPage(), ${dtoName?uncap_first}.getPageSize());
+        PageUtils.startPage(${dtoName?uncap_first}.getCurrentPage(), ${dtoName?uncap_first}.getPageSize());
         List<${entityName}> list = ${daoName?uncap_first}.selectList(${dtoName?uncap_first});
         List<${voName}> ${voName?uncap_first}List = new ArrayList <${voName}>();
         if(list != null && list.size() > 0) {
