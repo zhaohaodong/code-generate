@@ -28,8 +28,9 @@
     
     <!-- 删除${entityName}-->
     <delete id="delete" parameterType="java.lang.Long">
-   	 	delete from ${tableName}
-    	where ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
+        update ${tableName}
+        set del_flag = 1
+        where ${businessId} = ${r"#{" + "${businessId}" + r",jdbcType=BIGINT}"}
     </delete>
   
   
