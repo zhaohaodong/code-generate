@@ -23,12 +23,12 @@ public class ${providerName} implements ${apiName} {
 
 	/**
 	*  获取${entityName}明细
-	*  @param  id
+	*  @param  ${entityName?uncap_first}Id
 	*  @return
 	* */
-	public RpcResponse<${entityName}> get(Long id) {
+	public RpcResponse<${entityName}> get(Long ${entityName?uncap_first}Id) {
 		try {
-			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${entityName}.class, id));
+			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.get(${entityName}.class, ${entityName?uncap_first}Id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
 			return ResponseModel.returnException(e);
@@ -37,12 +37,12 @@ public class ${providerName} implements ${apiName} {
 
 	/**
 	*  获取${entityName}明细
-	*  @param  id
+	*  @param  ${entityName?uncap_first}Id
 	*  @return
 	* */
-	public RpcResponse<${voName}> detail(Long id) {
+	public RpcResponse<${voName}> detail(Long ${entityName?uncap_first}Id) {
 		try {
-			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.detail(id));
+			return ResponseModel.returnObjectSuccess(${serviceName?uncap_first}.detail(${entityName?uncap_first}Id));
 		} catch (Exception e) {
 			logger.error("获取${entityName}明细失败", e);
 			return ResponseModel.returnException(e);

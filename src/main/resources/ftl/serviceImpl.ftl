@@ -43,8 +43,8 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
     }
 
 
-    public ${voName} detail(Long id) {
-        ${entityName} ${entityName?uncap_first} = ${daoName?uncap_first};.selectByKid(${entityName}.class,id);
+    public ${voName} detail(Long ${entityName?uncap_first}Id) {
+        ${entityName} ${entityName?uncap_first} = ${daoName?uncap_first};.selectByKid(${entityName}.class,${entityName?uncap_first}Id);
         ${voName} ${voName?uncap_first} = new ${voName}();
         if (${voName?uncap_first} != null) {
             //${entityName} to ${voName}

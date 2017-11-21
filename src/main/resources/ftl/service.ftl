@@ -21,6 +21,6 @@ public interface ${serviceName} extends BaseService {
 
    PageList<${voName}> selectList(${dtoName} ${dtoName?uncap_first});
 
-   ${voName} detail(Long id);
+   ${voName} detail(Long ${entityName?uncap_first}Id);
 
 }
