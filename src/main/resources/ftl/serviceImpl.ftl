@@ -44,9 +44,9 @@ public class ${serviceImplName} extends BaseServiceImpl implements ${serviceName
 
 
     public ${voName} detail(Long id) {
-        ${entityName} ${entityName?uncap_first} = momentsDao.selectByKid(${entityName}.class,id);
+        ${entityName} ${entityName?uncap_first} = ${daoName?uncap_first};.selectByKid(${entityName}.class,id);
         ${voName} ${voName?uncap_first} = new ${voName}();
-        if (moments != null) {
+        if (${voName?uncap_first} != null) {
             //${entityName} to ${voName}
         }
         return ${voName?uncap_first};
